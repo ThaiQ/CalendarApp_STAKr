@@ -1,4 +1,4 @@
-﻿<h1>Product Name</h1>
+﻿<h1>STAKr</h1>
 By: Alex Montgomery (AMontgomery123), Thai Quach (ThaiQ), Sean Milner(Sean), Nguyen Cuu Khanh (khanhsjsu)
 
 **Problem Statement**  
