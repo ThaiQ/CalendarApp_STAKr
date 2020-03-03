@@ -32,7 +32,7 @@ Build an application using Python-3 and the Flask Framework to create an appoint
 -   System must use Gregorian calendar
 
 # Use Case Description
-**UML Diagram**
+### **UML Diagram**  
 ![uml](./UML.png)
 
 ## Owners’ Use Case Description  
