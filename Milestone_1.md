@@ -96,8 +96,8 @@ Register --- NewUser
 **Summary:** Allows a user to log in to their account  
 **Actor(s):** Registered-Owner
 **Pre-conditions:**  
-  * 1.  Registered an account
-  * 2.  Confirmed email address of account
+  *   Registered an account
+  *   Confirmed email address of account
 
 **Primary sequence:**  
   1.  Enter a username and a password  
@@ -128,7 +128,7 @@ Register --- NewUser
 **Summary:** Allows the owner to configure their desired time for customers to make an appointment with
 **Actor(s):** Owner 
 **Pre-conditions:**  
- * 1.  User must be logged into his/her account
+ *   User must be logged into his/her account
 
 **Primary sequence:**
   1.  Click on "Set Working Schedule"
@@ -151,9 +151,9 @@ Register --- NewUser
 **Summary:** Allows the owner to get their unique URL which allows their customer to create an appointment from their selected time.
 **Actor(s):** Owner.
 **Pre-conditions:**
-* 1.  Users must have an account.
-* 2.  Users must be logged in.
-* 3.  Users have not made an appointment yet.
+*   Users must have an account.
+*   Users must be logged in.
+*   Users have not made an appointment yet.
     
 **Primary sequence:** Select "My appointment link" and a unique URL-link is generated for copy.
 1.  Users will log into their account.
@@ -172,7 +172,7 @@ Register --- NewUser
 **Summary:** Allow a customer to make an appointment through the owner's invitation-URL.
 **Actor(s):** Customers.
 **Pre-conditions:** Must have the invitation-URL from the owner.
-1.  The customer receives an invitation email that is sent from users.
+* The customer receives an invitation email that is sent from users.
     
 **Primary sequence:** Click on URL, select valid time from the owner's schedule and save
 1.  The customer selects the link URL in the email.
