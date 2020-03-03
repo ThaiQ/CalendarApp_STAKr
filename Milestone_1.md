@@ -1,5 +1,5 @@
 ﻿<h1>STAKr</h1>
-By: Alex Montgomery (AMontgomery123), Thai Quach (ThaiQ), Sean Milner(Sean), Nguyen Cuu Khanh (khanhsjsu)
+By: Alex Montgomery (AMontgomery123), Thai Quach (ThaiQ), Sean Milner(shengda419), Nguyen Cuu Khanh (khanhsjsu)
 
 **Problem Statement**  
 Many people in the professional world need a way to manage appointments. The problem, though, is that many calendar applications do not present a streamlined way to manage them.
@@ -33,37 +33,7 @@ Build an application using Python-3 and the Flask Framework to create an appoint
 
 # Use Case Description
 **UML Diagram**
-```mermaid
-graph LR
-
-subgraph Main Actor
-Owner[Owner]
-end
-
-subgraph Use Cases
-Owner -.Confirmed email.- Register(Register)
-Owner --- Login(Login)
-Owner --- Logout(Logout)
-Owner --- CreateAcc(Successfuly create account)
-Owner --- Setting(Setting working schedule)
-Owner --- Invitation(Send URL invitation)
-Owner --- ScheduleApt(Schedule an appointment)
-Owner --- CheckApt(View all appointment through a calendar-UI)
-Owner --- CancelApt(Cancel appoitnment)
-Owner --- ChangeApt(Change appointment)
-end
-
-subgraph Extended Actors
-NewUser[New User]
-Customer[Customer]
-end
-
-ScheduleApt --- Customer
-CancelApt --- Customer
-ChangeApt --- Customer
-
-Register --- NewUser
-```
+![uml](./UML.png)
 
 ## Owners’ Use Case Description  
 ### **Register** 
