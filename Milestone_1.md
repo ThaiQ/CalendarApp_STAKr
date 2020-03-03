@@ -95,6 +95,7 @@ Register --- NewUser
 ### **Login**  
 **Summary:** Allows a user to log in to their account  
 **Actor(s):** Registered-Owner
+
 **Pre-conditions:**  
   *   Registered an account
   *   Confirmed email address of account
@@ -127,6 +128,7 @@ Register --- NewUser
 ### **Configure active schedule**  
 **Summary:** Allows the owner to configure their desired time for customers to make an appointment with
 **Actor(s):** Owner 
+
 **Pre-conditions:**  
  *   User must be logged into his/her account
 
@@ -150,6 +152,7 @@ Register --- NewUser
 ### **Send appointment invitation**
 **Summary:** Allows the owner to get their unique URL which allows their customer to create an appointment from their selected time.
 **Actor(s):** Owner.
+
 **Pre-conditions:**
 *   Users must have an account.
 *   Users must be logged in.
