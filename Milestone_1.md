@@ -151,6 +151,7 @@ Register --- NewUser
  ---   
 ### **Send appointment invitation**
 **Summary:** Allows the owner to get their unique URL which allows their customer to create an appointment from their selected time.
+
 **Actor(s):** Owner.
 
 **Pre-conditions:**
