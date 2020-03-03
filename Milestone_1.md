@@ -40,39 +40,40 @@ Build an application using Python-3 and the Flask Framework to create an appoint
 **Summary:** Allows a user to register for an account 
 **Actor(s):** Unregistered user  
 **Pre-conditions:**  
-1. User must not have an existing account  
-2. User must have an existing email address  
+ *  User must not have an existing account  
+ *  User must have an existing email address  
 
 **Primary sequence:**  
-1.  Click on "Register"  
-2.  Input desired login info (email) and password  
-3.  Click on “Create Account”  
-4.  Confirm email address  
+  1.  Click on "Register"  
+  2.  Input desired login info (email) and password  
+  3.  Click on “Create Account”  
+  4.  Confirm email address  
 
 **Alternative sequence:**  
 1.  Email does not exist  
-* System displays error message “Invalid email address” to the customer
+    * System displays error message “Invalid email address” to the customer
 
 **Post-condition:**
 1.  Customer email is successfully confirmed  
     * Customer receives a confirmation email and has accepted it  
     * Customer can now login with their credentials  
 1.  Email has not been confirmed
-*  Customer can not login because they have not confirmed the email verification
+    *  Customer can not login because they have not confirmed the email verification
 3.  Customer has not successfully created an account  
     *  No account was created presumably due to invalid login info  
 ---
 ### **Login**  
 **Summary:** Allows a user to log in to their account  
 **Actor(s):** Registered-Owner
+
 **Pre-conditions:**  
-1.  Registered an account
-2.  Confirmed email address of account
+  *   Registered an account
+  *   Confirmed email address of account
 
 **Primary sequence:**  
-1.  Enter a username and a password  
-2.  (Optional) Select ”Remember Me”  
-3.  Click “Login”  
+  1.  Enter a username and a password  
+  2.  (Optional) Select ”Remember Me”  
+  3.  Click “Login”  
 
 **Alternative sequence:**
 1.  If user does not have an account
@@ -97,13 +98,14 @@ Build an application using Python-3 and the Flask Framework to create an appoint
 ### **Configure active schedule**  
 **Summary:** Allows the owner to configure their desired time for customers to make an appointment with
 **Actor(s):** Owner 
+
 **Pre-conditions:**  
-1.  User must be logged into his/her account
+ *   User must be logged into his/her account
 
 **Primary sequence:**
-1.  Click on "Set Working Schedule"
-2.  Choose desired Working Time
-3.  Click on “Save”
+  1.  Click on "Set Working Schedule"
+  2.  Choose desired Working Time
+  3.  Click on “Save”
     
 **Alternative sequence:**
 1.  Click on “Cancel”
@@ -119,11 +121,13 @@ Build an application using Python-3 and the Flask Framework to create an appoint
  ---   
 ### **Send appointment invitation**
 **Summary:** Allows the owner to get their unique URL which allows their customer to create an appointment from their selected time.
+
 **Actor(s):** Owner.
+
 **Pre-conditions:**
-1.  Users must have an account.
-2.  Users must be logged in.
-3.  Users have not made an appointment yet.
+*   Users must have an account.
+*   Users must be logged in.
+*   Users have not made an appointment yet.
     
 **Primary sequence:** Select "My appointment link" and a unique URL-link is generated for copy.
 1.  Users will log into their account.
@@ -141,8 +145,9 @@ Build an application using Python-3 and the Flask Framework to create an appoint
 ### **Make an appointment**  
 **Summary:** Allow a customer to make an appointment through the owner's invitation-URL.
 **Actor(s):** Customers.
+
 **Pre-conditions:** Must have the invitation-URL from the owner.
-1.  The customer receives an invitation email that is sent from users.
+* The customer receives an invitation email that is sent from users.
     
 **Primary sequence:** Click on URL, select valid time from the owner's schedule and save
 1.  The customer selects the link URL in the email.
