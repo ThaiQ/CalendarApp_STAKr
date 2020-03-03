@@ -70,25 +70,25 @@ Register --- NewUser
 **Summary:** Allows a user to register for an account 
 **Actor(s):** Unregistered user  
 **Pre-conditions:**  
-1. User must not have an existing account  
-2. User must have an existing email address  
+ * 1. User must not have an existing account  
+ * 2. User must have an existing email address  
 
 **Primary sequence:**  
-1.  Click on "Register"  
-2.  Input desired login info (email) and password  
-3.  Click on “Create Account”  
-4.  Confirm email address  
+  1.  Click on "Register"  
+  2.  Input desired login info (email) and password  
+  3.  Click on “Create Account”  
+  4.  Confirm email address  
 
 **Alternative sequence:**  
 1.  Email does not exist  
-* System displays error message “Invalid email address” to the customer
+    * System displays error message “Invalid email address” to the customer
 
 **Post-condition:**
 1.  Customer email is successfully confirmed  
     * Customer receives a confirmation email and has accepted it  
     * Customer can now login with their credentials  
 1.  Email has not been confirmed
-*  Customer can not login because they have not confirmed the email verification
+    *  Customer can not login because they have not confirmed the email verification
 3.  Customer has not successfully created an account  
     *  No account was created presumably due to invalid login info  
 ---
@@ -96,13 +96,13 @@ Register --- NewUser
 **Summary:** Allows a user to log in to their account  
 **Actor(s):** Registered-Owner
 **Pre-conditions:**  
-1.  Registered an account
-2.  Confirmed email address of account
+  * 1.  Registered an account
+  * 2.  Confirmed email address of account
 
 **Primary sequence:**  
-1.  Enter a username and a password  
-2.  (Optional) Select ”Remember Me”  
-3.  Click “Login”  
+  1.  Enter a username and a password  
+  2.  (Optional) Select ”Remember Me”  
+  3.  Click “Login”  
 
 **Alternative sequence:**
 1.  If user does not have an account
@@ -128,12 +128,12 @@ Register --- NewUser
 **Summary:** Allows the owner to configure their desired time for customers to make an appointment with
 **Actor(s):** Owner 
 **Pre-conditions:**  
-1.  User must be logged into his/her account
+ * 1.  User must be logged into his/her account
 
 **Primary sequence:**
-1.  Click on "Set Working Schedule"
-2.  Choose desired Working Time
-3.  Click on “Save”
+  1.  Click on "Set Working Schedule"
+  2.  Choose desired Working Time
+  3.  Click on “Save”
     
 **Alternative sequence:**
 1.  Click on “Cancel”
@@ -151,9 +151,9 @@ Register --- NewUser
 **Summary:** Allows the owner to get their unique URL which allows their customer to create an appointment from their selected time.
 **Actor(s):** Owner.
 **Pre-conditions:**
-1.  Users must have an account.
-2.  Users must be logged in.
-3.  Users have not made an appointment yet.
+* 1.  Users must have an account.
+* 2.  Users must be logged in.
+* 3.  Users have not made an appointment yet.
     
 **Primary sequence:** Select "My appointment link" and a unique URL-link is generated for copy.
 1.  Users will log into their account.
