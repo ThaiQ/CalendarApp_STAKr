@@ -70,8 +70,8 @@ Register --- NewUser
 **Summary:** Allows a user to register for an account 
 **Actor(s):** Unregistered user  
 **Pre-conditions:**  
- * 1. User must not have an existing account  
- * 2. User must have an existing email address  
+ *  User must not have an existing account  
+ *  User must have an existing email address  
 
 **Primary sequence:**  
   1.  Click on "Register"  
