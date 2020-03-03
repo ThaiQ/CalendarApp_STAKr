@@ -171,6 +171,7 @@ Register --- NewUser
 ### **Make an appointment**  
 **Summary:** Allow a customer to make an appointment through the owner's invitation-URL.
 **Actor(s):** Customers.
+
 **Pre-conditions:** Must have the invitation-URL from the owner.
 * The customer receives an invitation email that is sent from users.
     
