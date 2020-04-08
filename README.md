@@ -33,7 +33,7 @@ Build an application using Python-3 and the Flask Framework to create an appoint
 
 # Use Case Description
 ### **UML Diagram**  
-![uml](./UML.png)
+![UML](https://user-images.githubusercontent.com/18486562/78841336-f6805800-79b1-11ea-8cfe-009b962e1527.png)
 
 ## Owners’ Use Case Description  
 ### **Register** 
