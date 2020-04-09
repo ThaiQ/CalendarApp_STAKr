@@ -7,6 +7,16 @@ Many people in the professional world need a way to manage appointments. The pro
 **Product Objectives**  
 Build an application using Python-3 and the Flask Framework to create an appointment system. This system will allow the customer and owner to communicate with one another by creating meetings through a Calendar-like interface.
 
+<h1>SETUP!</h1>
+1. Installing Dependencies:  
+    
+    python3 setup.py
+          or
+    python setup.py
+
+
+<h1>Product</h1>  
+
 **Functional Requirements:**  
 
 -    Database should hold owner login information
