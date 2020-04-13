@@ -1,4 +1,4 @@
-﻿<h1>STAKr</h1>
+﻿# STAKr
 By: Alex Montgomery (AMontgomery123), Thai Quach (ThaiQ), Sean Milner(shengda419), Nguyen Cuu Khanh (khanhsjsu)
 
 **Problem Statement**  
@@ -7,6 +7,22 @@ Many people in the professional world need a way to manage appointments. The pro
 **Product Objectives**  
 Build an application using Python-3 and the Flask Framework to create an appointment system. This system will allow the customer and owner to communicate with one another by creating meetings through a Calendar-like interface.
 
+---
+# SETUP!
+## Required Libraries
+
+    Python3  
+    pip3
+
+## Installing Dependencies
+
+    python3 setup.py
+
+## Run Project with <nobr>run.py</nobr>
+    python3 run.py
+
+---
+# Product  
 **Functional Requirements:**  
 
 -    Database should hold owner login information
@@ -33,7 +49,7 @@ Build an application using Python-3 and the Flask Framework to create an appoint
 
 # Use Case Description
 ### **UML Diagram**  
-![UML](https://user-images.githubusercontent.com/18486562/78841336-f6805800-79b1-11ea-8cfe-009b962e1527.png)
+![UML](https://user-images.githubusercontent.com/18486562/79171733-b3562880-7da7-11ea-8cf3-6e66574cb90f.png)
 
 ## Owners’ Use Case Description  
 ### **Register** 
