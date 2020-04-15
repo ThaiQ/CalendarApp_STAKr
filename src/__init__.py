@@ -10,7 +10,7 @@ app.config.from_object(Config)
 db = SQLAlchemy(app) 
 
 #routes
-from src.routes import Home, Login
+from src.routes import Home, Login, Register
 
 #models
-from src.schemas import Post, User
+from src.schemas import User
