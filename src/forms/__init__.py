@@ -1,2 +1,2 @@
 from src.forms.Login import LoginForm
-from src.froms.Register import RegistrationForm
+from src.forms.Register import RegistrationForm
