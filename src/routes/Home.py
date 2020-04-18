@@ -3,6 +3,16 @@ from src import app
 
 @app.route("/")
 def home():
+    """
+    Home.
+
+    Parameters:
+        N/A
+
+    Returns:
+        Rendered template html
+
+    """
     user_dictionary = {'username': 'Miguel'}
     posts_list = [
         {

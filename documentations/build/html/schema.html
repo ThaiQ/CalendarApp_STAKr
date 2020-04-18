@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Schemas &#8212; STAKr  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Routes" href="route.html" />
+    <link rel="prev" title="Requirements" href="installation.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-src.schemas.User">
+<span id="schemas"></span><h1>Schemas<a class="headerlink" href="#module-src.schemas.User" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="src.schemas.User.User">
+<em class="property">class </em><code class="sig-prename descclassname">src.schemas.User.</code><code class="sig-name descname">User</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.schemas.User.User" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="src.schemas.User.User.email">
+<code class="sig-name descname">email</code><a class="headerlink" href="#src.schemas.User.User.email" title="Permalink to this definition">¶</a></dt>
+<dd><p>user’s email</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.User.User.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#src.schemas.User.User.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>user’s unique id</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.User.User.password_hash">
+<code class="sig-name descname">password_hash</code><a class="headerlink" href="#src.schemas.User.User.password_hash" title="Permalink to this definition">¶</a></dt>
+<dd><p>hashed version of user’s password</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="src.schemas.User.User.set_password">
+<code class="sig-name descname">set_password</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">password</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.schemas.User.User.set_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set password for user</p>
+<blockquote>
+<div><p>Hash the password parameter and set the user’s password_hash</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Parameters:</dt><dd><dl class="simple">
+<dt>password (str):</dt><dd><p>user’s password</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.User.User.username">
+<code class="sig-name descname">username</code><a class="headerlink" href="#src.schemas.User.User.username" title="Permalink to this definition">¶</a></dt>
+<dd><p>user’s username</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">STAKr</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#run-the-project">Run the project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#relevant-info">Relevant Info</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Schemas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="route.html">Routes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="form.html">Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="template.html">Templates</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="installation.html" title="previous chapter">Requirements</a></li>
+      <li>Next: <a href="route.html" title="next chapter">Routes</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Sean Milner, Nguyen Khanh, Alex Montgomery, Thai Quach.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/schema.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

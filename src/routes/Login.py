@@ -6,6 +6,17 @@ from src.forms import LoginForm
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    """
+    Login
+        Check for valid login information
+
+    Parameters:
+        N/A
+
+    Returns:
+        Rendered template html
+
+    """
     current_form = LoginForm()
     if current_form.validate_on_submit():
         flash(f'Login requested for user {current_form.username.data}')
