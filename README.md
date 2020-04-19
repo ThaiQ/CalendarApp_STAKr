@@ -47,6 +47,10 @@ Build an application using Python-3 and the Flask Framework to create an appoint
     
 -   System must use Gregorian calendar
 
+# Project Planner
+### **Grantt Chart**
+![grantt chart](https://user-images.githubusercontent.com/60629468/79679202-a9259700-81b8-11ea-879c-99a78675ef62.JPG)
+
 # Use Case Description
 ### **UML Diagram**  
 ![UML](https://user-images.githubusercontent.com/18486562/79171733-b3562880-7da7-11ea-8cf3-6e66574cb90f.png)
