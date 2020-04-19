@@ -1,2 +1,9 @@
 #Ignoring database
 app.db
+#Ignoring cache
+__pycache__
+src/__init__.pyc
+src/__pycache__
+src/forms/__pycache__
+src/routes/__pycache__
+src/shemas/__pycache__
