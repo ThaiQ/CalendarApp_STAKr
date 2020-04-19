@@ -1,6 +1,7 @@
 from src import app
 from src import db
 from flask import render_template, redirect
+from flask_login import current_user
 from src.forms import RegistrationForm
 from src.schemas import User
 
@@ -17,6 +18,9 @@ def register():
         Rendered template html
 
     """
+    if current_user.is_authenticated:
+        #handles if someone tries to register when already logged in
+        return redirect('/')
     form = RegistrationForm()
     if form.validate_on_submit():
         user = User(username=form.username.data, email=form.email.data)
