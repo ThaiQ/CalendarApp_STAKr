@@ -1,3 +1,6 @@
+{% extends "Home/base.html" %}
+
+{% block content %}
 <h1>Register</h1>
 <form action="" method="post">
     {{ form.hidden_tag() }}
@@ -5,7 +8,7 @@
     
     <p> 
         {{ form.firstname.label }}  <br>
-        {{ form.firstname(size=32)}} 
+        {{ form.firstname(size=32)}}
     </p>
 
     <p> 
@@ -16,11 +19,17 @@
     <p>
         {{ form.username.label }} <br>
         {{ form.username(size=32)}}
+		{% for error in form.username.errors %}
+		<span style="color: red;">[{{ error}}]</span>
+		{% endfor %}
     </p>
 
     <p>
         {{ form.email.label }} <br>
         {{ form.email(size=32)}}
+		{% for error in form.email.errors %}
+		<span style="color: red;">[{{ error}}]</span>
+		{% endfor %}
     </p>
 
     <p>
@@ -32,6 +41,9 @@
     <p>
         {{ form.password.label }} <br>
         {{ form.password(size=32)}}
+		{% for error in form.password.errors %}
+		<span style="color: red;">[{{ error}}]</span>
+		{% endfor %}
     </p>
 
     <p>
@@ -40,3 +52,4 @@
     </p>
     <p>{{ form.submit() }} </p>
 </form>
+{% endblock %}
