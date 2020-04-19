@@ -1,4 +1,5 @@
 from flask import render_template
+from flask_login import current_user
 from src import app
 
 @app.route("/")
@@ -13,15 +14,22 @@ def home():
         Rendered template html
 
     """
-    user_dictionary = {'username': 'Miguel'}
     posts_list = [
         {
-            'author': {'username': 'John'},
-            'body': 'Beautiful day in Portland!'
+            'author': {'username': 'Alex'},
+            'body': 'AMontgomery123'
         },
         {
-            'author': {'username': 'Susan'},
-            'body': 'The Avengers movie was so cool!'
-        }
+            'author': {'username': 'Khang'},
+            'body': 'khanhsjsu'
+        },
+		{
+			'author': {'username': 'Thai'},
+            'body': 'ThaiQ'
+		},
+		{
+			'author': {'username': 'Sean'},
+            'body': 'shengda419'
+		}
     ]
-    return render_template('Home/home.html', title='Home', user=user_dictionary, posts=posts_list)
+    return render_template('Home/home.html', title='Home', posts=posts_list)
