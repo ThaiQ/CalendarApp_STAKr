@@ -2,16 +2,21 @@
 <html>
     <head>
        {% if title %}
-       <title>{{ title }} - my blog</title>
+       <title>{{ title }} - STAKr</title>
        {% else %}
-       <title>Welcome to my blog</title>
+       <title>STAKr</title>
        {% endif %}
     </head>
     <body>
        <div>
-        my blog: 
+        Links: 
             <a href="/">Home</a>
+			{% if current_user.is_anonymous %}
             <a href="/login">Sign in</a>
+			{% else %}
+			<a href="/logout">Log Out</a>
+			{%endif %}
+            <a href="/register">Register</a>
      </div>
        <hr>
 

@@ -1,10 +1,15 @@
 {% extends "Home/base.html" %}
  
 {% block content %}
-    <h1>Hello, {{ user.username }}!</h1>
+	{% if current_user.is_anonymous %}
+	<h1>Welcome to SPAKr!</h1>
+	{% else %}
+    <h1>Hello, {{ current_user.username }}!</h1>
+	{% endif %}
+	<p>Project Contributors: </p>
     {% for post in posts %}
         <div>
-            <p>{{ post.author.username }} says: <b>{{ post.body }}</b></p>
+            <p>{{ post.author.username }}: {{ post.body }}</p>
         </div>
     {% endfor %}
 {% endblock %}

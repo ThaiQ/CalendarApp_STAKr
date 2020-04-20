@@ -20,7 +20,7 @@ Build an application using Python-3 and the Flask Framework to create an appoint
 
 ## Run Project with <nobr>run.py</nobr>
     python3 run.py
-
+    
 ---
 # Product  
 **Functional Requirements:**  
@@ -46,6 +46,10 @@ Build an application using Python-3 and the Flask Framework to create an appoint
 -   The site shall be able to run on Windows, Mac, and Linux machines
     
 -   System must use Gregorian calendar
+
+# Project Planner
+### **Grantt Chart**
+![grantt chart](https://user-images.githubusercontent.com/60629468/79679202-a9259700-81b8-11ea-879c-99a78675ef62.JPG)
 
 # Use Case Description
 ### **UML Diagram**  
