@@ -26,6 +26,15 @@ class User(UserMixin, db.Model):
         self.password_hash = generate_password_hash(password)
 
     def check_password(self, password):
+        """
+        Check user password
+
+            Hash the password parameter and check for similarity with password_hash
+
+        Parameters:
+            password (str):
+                user's password
+        """
         return check_password_hash(self.password_hash, password)
 
     def __repr__(self):

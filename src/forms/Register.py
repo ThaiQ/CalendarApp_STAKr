@@ -21,7 +21,8 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField('Register')
     """Submit button"""
     
-    '''
+    def validate_username(self, username):
+        '''
         Validate Username
             Makes sure the username is not in the database
         
@@ -30,14 +31,13 @@ class RegistrationForm(FlaskForm):
         
         Returns
             ValidationError if the username already exists
-    '''
-    def validate_username(self, username):
+        '''
         user = User.query.filter_by(username=username.data).first()
         if user is not None:
             raise ValidationError('Please use a different username.')
     
-    
-    '''
+    def validate_email(self, email):
+        '''
         Validate Email
             Makes sure the email does not exist in the database
         
@@ -46,8 +46,7 @@ class RegistrationForm(FlaskForm):
         
         Returns
             ValidationError if the email already exists in the database
-    '''
-    def validate_email(self, email):
+        '''
         user = User.query.filter_by(email=email.data).first()
         if user is not None:
             raise ValidationError('Please use a different email address.')

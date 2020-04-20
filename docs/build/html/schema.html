@@ -37,7 +37,23 @@
 <dl class="py class">
 <dt id="src.schemas.User.User">
 <em class="property">class </em><code class="sig-prename descclassname">src.schemas.User.</code><code class="sig-name descname">User</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.schemas.User.User" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py attribute">
+<dd><dl class="py method">
+<dt id="src.schemas.User.User.check_password">
+<code class="sig-name descname">check_password</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">password</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.schemas.User.User.check_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check user password</p>
+<blockquote>
+<div><p>Hash the password parameter and check for similarity with password_hash</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Parameters:</dt><dd><dl class="simple">
+<dt>password (str):</dt><dd><p>user’s password</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
 <dt id="src.schemas.User.User.email">
 <code class="sig-name descname">email</code><a class="headerlink" href="#src.schemas.User.User.email" title="Permalink to this definition">¶</a></dt>
 <dd><p>user’s email</p>
@@ -48,6 +64,11 @@
 <code class="sig-name descname">id</code><a class="headerlink" href="#src.schemas.User.User.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>user’s unique id</p>
 </dd></dl>
+
+<dl class="py method">
+<dt id="src.schemas.User.User.load_user">
+<code class="sig-name descname">load_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.schemas.User.User.load_user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="src.schemas.User.User.password_hash">
