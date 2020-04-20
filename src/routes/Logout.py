@@ -9,15 +9,14 @@ from src.schemas import User
 @app.route('/logout')
 def logout():
     '''
-        Logout
-            Logs the user out of the site
+    Logout
+        Logs the user out of the site
     
-        Parameters:
-            N/A
+    Parameters:
+        N/A
         
-        Returns:
-            Redirects user to Home page
+    Returns:
+        Redirects user to Home page
     '''
-    
     logout_user()
     return redirect('/')

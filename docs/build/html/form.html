@@ -114,6 +114,32 @@
 <dd><p>Username for login</p>
 </dd></dl>
 
+<dl class="py method">
+<dt id="src.forms.Register.RegistrationForm.validate_email">
+<code class="sig-name descname">validate_email</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">email</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.forms.Register.RegistrationForm.validate_email" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Validate Email</dt><dd><p>Makes sure the email does not exist in the database</p>
+</dd>
+<dt>Parameters</dt><dd><p>self, email</p>
+</dd>
+<dt>Returns</dt><dd><p>ValidationError if the email already exists in the database</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="src.forms.Register.RegistrationForm.validate_username">
+<code class="sig-name descname">validate_username</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.forms.Register.RegistrationForm.validate_username" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Validate Username</dt><dd><p>Makes sure the username is not in the database</p>
+</dd>
+<dt>Parameters</dt><dd><p>self, username</p>
+</dd>
+<dt>Returns</dt><dd><p>ValidationError if the username already exists</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>
