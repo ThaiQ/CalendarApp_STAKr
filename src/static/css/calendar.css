@@ -3,6 +3,8 @@ body {font-family: Verdana, sans-serif;}
 
 .month-header {
   padding-bottom: 20px;
+  color: white;
+  font-size: 30px;
 }
 
 /* Month*/
@@ -26,10 +28,12 @@ body {font-family: Verdana, sans-serif;}
 
 .month .prev {
   float: left;
+  cursor: pointer;
 }
 
 .month .next {
   float: right;
+  cursor: pointer;
 }
 
 .weekdays, .days {
@@ -43,4 +47,9 @@ body {font-family: Verdana, sans-serif;}
 .date {
   border: 1px solid lightgray;
   padding: +20%;
+}
+
+.date-with-content {
+  border: 1px solid lightgray;
+  padding: 0;
 }
