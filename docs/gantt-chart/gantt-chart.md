@@ -43,9 +43,9 @@ gantt
 
 
     section Milestone-3_Expected
-    Milestone-3_due (11d - 4/22 ~ 5/03)                                   : 2020-04-22, 11d
-    Navigation Bar (1d)                                     : stage1, 2020-04-24, 1d
-    Setting Page - Frontend (1d)                            : 2020-04-24, 1d
+    Milestone-3_due (11d - 4/22 ~ 5/03)                     : 2020-04-22, 11d
+    Event Schema (9d)                                       : stage1, 2020-04-24, 1d
+    Setting Page - Frontend (1d)                            : 2020-04-27, 6d
 
     Delete Account - Functionality (1d)                     : after stage1, 1d
     Set Appointment Availability - Functionality (3d)       : stage2, after stage1, 3d
