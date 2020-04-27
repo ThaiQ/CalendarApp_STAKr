@@ -12,6 +12,8 @@ class User(UserMixin, db.Model):
     """user's email"""
     password_hash = db.Column(db.String(128))
     """hashed version of user's password"""
+    confirmed_user = db.Column(db.Boolean(), default=False)
+    """Email confirmation"""
 
     def set_password(self, password):
         """
