@@ -8,6 +8,17 @@ app = Flask(__name__)
 app.config.from_object(Config)
 login = LoginManager(app)
 
+mail_settings = {
+    "MAIL_SERVER": 'smtp.gmail.com',
+    "MAIL_PORT": 465,
+    "MAIL_USE_TLS": False,
+    "MAIL_USE_SSL": True,
+    "MAIL_USERNAME": "testcalendar131@gmail.com",
+    "MAIL_PASSWORD": "xszfynrhtlagybbe"
+}
+
+app.config.update(mail_settings)
+
 #SQLite database
 db = SQLAlchemy(app) 
 
