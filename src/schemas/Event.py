@@ -9,15 +9,15 @@ class Event(db.Model):
     """event's name"""
     event_description = db.Column(db.Text(2000), nullable=False)
     """event's description"""
-    event_date = db.Column(db.Date, nullable=False, date.utcnow)
+    event_date = db.Column(db.Date, nullable=False)
     """event's date"""
-    event_month = db.Column(db.Month, nullable=False, month.utcnow)
+    event_month = db.Column(db.Month, nullable=False)
     """event's month"""
-    event_year = db.Column(db.Year, nullable=False, year.utcnow)
+    event_year = db.Column(db.Year, nullable=False)
     """event's year"""
-    start_hour = db.Column(db.Hour, nullable=False, time.utcnow)
+    start_hour = db.Column(db.Hour, nullable=False)
     """event's start hour"""
-    end_hour = db.Column(db.Hour, nullable=False, time.utcnow)
+    end_hour = db.Column(db.Hour, nullable=False)
     """event's end hour"""
     length = db.Column(db.Integer)
     """event's  durations"""
