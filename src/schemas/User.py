@@ -1,6 +1,11 @@
 from src import db
 from werkzeug.security import generate_password_hash, check_password_hash
 
+@login_manager.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+
+
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -12,3 +17,12 @@ class User(db.Model):
 
     def __repr__(self):
         return '<User {}>'.format(self.username)
+        
+class Post(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.String(256))
+    timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'),onupdate="CASCADE")
+
+    def __repr__(self):
+        return '<Posts {}>'.format(self.body)

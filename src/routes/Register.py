@@ -1,16 +1,19 @@
 from src import app
 from src import db
-from flask import render_template, redirect
-from src.forms import RegistrationForm
+from flask import render_template, redirect ,
+from src.forms import RegistrationForm,DeleteAccountForm
 from src.schemas import User
 
 @app.route('/register', methods=['GET', 'POST'])
-def register():
+def reg():
     form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(username=form.username.data, email=form.email.data)
-        user.set_password(form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        return redirect('/')
-    return render_template('Register/register.html', form=form)
+    delete_acc_form = DeleteAccountForm(request.form)
+
+if request.method =='POST'  :	
+		if 'Delete Account' == request.form['submit']:			
+			db.session.delete(current_user)
+			db.session.commit()
+			print("Deleting account")
+			return redirect(url_for('login'))
+
+ return render_template('register.html', form=form)

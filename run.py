@@ -4,3 +4,4 @@ from src import app,db
 db.create_all()
 #run application
 app.run()
+

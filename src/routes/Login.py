@@ -11,3 +11,4 @@ def login():
         flash(f'Login requested for user {current_form.username.data}')
         return redirect('/')
     return render_template('Login/login.html', title='Sign In', form=current_form)
+    
