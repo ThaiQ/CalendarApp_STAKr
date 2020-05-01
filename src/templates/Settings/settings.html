@@ -1,0 +1,19 @@
+{% extends "Home/base.html" %}
+ 
+{% block content %}
+	<h1>Settings:</h1>
+
+	<p>Availability: </p>
+	<form action="" method="post" novalidate>
+		<p>
+            {{ form.available.label }}<br>
+            {{ form.available(size=32) }}
+        </p>
+		<p> Length of appointment?</p>
+		<p>{{ form.fifteen() }} {{ form.fifteen.label }}</p>
+		<p>{{ form.thirty() }} {{ form.thirty.label }}</p>
+		<p>{{ form.sixty() }} {{ form.sixty.label }}</p>
+        <p>{{ form.emailconfirm() }} {{ form.emailconfirm.label }}</p>
+        <p>{{ form.submit() }}</p>
+	</form>
+{% endblock %}
