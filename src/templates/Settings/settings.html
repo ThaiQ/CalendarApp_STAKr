@@ -6,13 +6,30 @@
 	<p>Availability between 9am-10pm (please use 24 hour clock): </p>
 	<form action="" method="post" novalidate>
 		<p>
-            {{ form.available.label }}<br>
-            {{ form.available(size=32) }}
-        </p>
-		<p> Length of appointment?</p>
+		   {# this is a comment
+			you did not make form.available in setting form so it crashed
+			{{ form.available.label }}<br>
+			{{ form.available(size=32) }}  
+			#}
+		</p>
+		
+		<div>
+			<p>Working Hours</p>
+			<p>Start: {{form.start_time()}}</p>
+			<p>End: {{form.start_time()}}</p>
+		</div>
+
+		<div>
+			<p> Length of appointment?</p>
+			{{form.duration()}}
+		</div>
+
+		{# may be you dont need these now
 		<p>{{ form.fifteen() }} {{ form.fifteen.label }}</p>
 		<p>{{ form.thirty() }} {{ form.thirty.label }}</p>
 		<p>{{ form.sixty() }} {{ form.sixty.label }}</p>
+		#}
+
         <p>{{ form.emailconfirm() }} {{ form.emailconfirm.label }}</p>
         <p>{{ form.submit() }}</p>
 	</form>
