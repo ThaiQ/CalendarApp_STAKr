@@ -3,7 +3,7 @@ from flask import redirect
 from flask import flash
 from flask_login import current_user, login_user
 from src import app
-from src.forms import Settings
+from src.forms import SettingsForm
 from src.schemas import User
 
 @app.route('/settings', methods=['GET', 'POST'])

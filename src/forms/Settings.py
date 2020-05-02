@@ -1,10 +1,12 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, BooleanField, SubmitField
+from wtforms import Form, BooleanField, SubmitField
+from wtforms_components import TimeField
 from wtforms.validators import DataRequired
  
 class SettingsForm(FlaskForm):
-    available = StringField('Availability between 9am-10pm (ex. 9am-4pm)', validators=[DataRequired()])
-    """String field for Availability"""
+    start_time = TimeField('Start Time Availability', validators=[DataRequired()])
+	end_time = TimeField('End Time Availability' validators=[DataRequired()])
+	"""Time field for Availability"""
     fifteen = BooleanField('15 minutes')
     """15 minutes allowed Boolean field"""
     thirty = BooleanField('30 minutes')
