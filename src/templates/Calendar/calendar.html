@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html>
 
+{ % extends base.html % }
+{ % block content % }
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
 </head>
 
 <body style="background-color: #252423;">
+
     <div class="month">
         <ul class="month-header">
             <div class="prev">&#10094;</div>
@@ -53,5 +54,4 @@
             return false;
         });
 </script>
-
-</html>
+{ % endblock % }
