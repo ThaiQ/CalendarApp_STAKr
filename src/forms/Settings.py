@@ -37,9 +37,9 @@ class SettingsForm(FlaskForm):
 
     timeRange = initTimeRange()
     "List of tuple of time such as [(0,'9:0AM'), (15,'9:15AM'), (30,'9:30AM'),... (240,'1:0PM'),...]"
-    start_time = SelectField('Choose a time',choices=timeRange)
+    start_time = SelectField('Choose a time', choices=timeRange)
     """Start of working hour"""
-    end_time = SelectField('Choose a time',choices=timeRange)
+    end_time = SelectField('Choose a time', choices=timeRange)
     """End of working hour"""
 
     # fifteen = BooleanField('15 minutes')
@@ -51,6 +51,7 @@ class SettingsForm(FlaskForm):
 
     emailconfirm = BooleanField('Email Confirmation?')
     """Email confirmation check box"""
+    delete = SubmitField('Delete Account?')
     submit = SubmitField('Save Changes')
     """Submit to Save changes"""
 

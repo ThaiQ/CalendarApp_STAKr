@@ -16,7 +16,7 @@
 		<div>
 			<p>Working Hours</p>
 			<p>Start: {{form.start_time()}}</p>
-			<p>End: {{form.start_time()}}</p>
+			<p>End: {{form.end_time()}}</p>
 		</div>
 
 		<div>
@@ -31,6 +31,7 @@
 		#}
 
         <p>{{ form.emailconfirm() }} {{ form.emailconfirm.label }}</p>
-        <p>{{ form.submit() }}</p>
+		<input type="submit" name="submit_button" value="Delete Account">
+		<input type="submit" name="submit_button" value="Save Changes">
 	</form>
 {% endblock %}

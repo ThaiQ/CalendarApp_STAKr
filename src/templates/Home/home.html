@@ -4,7 +4,7 @@
 	{% if current_user.is_anonymous %}
 	<h1>Welcome to STAKr!</h1>
 	{% else %}
-    <h1>Hello, {{ current_user.username }}. {{ current_user.start_available }} {{ current_user.end_available }} {{ current_user.meeting_length }}!</h1>
+    <h1>Hello, {{ current_user.username }}!</h1>
 	{% endif %}
 	<p>Project Contributors: </p>
     {% for post in posts %}
