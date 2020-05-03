@@ -1,5 +1,6 @@
 from src import db
 from src import login
+#from src.schemas import Event
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
@@ -12,6 +13,11 @@ class User(UserMixin, db.Model):
     """user's email"""
     password_hash = db.Column(db.String(128))
     """hashed version of user's password"""
+
+    start_available = db.Column(db.Integer, default = 0)
+    end_available = db.Column(db.Integer, default = 0)
+    meeting_length = db.Column(db.Integer, default = 0)
+    #events = db.relationship('Event', backref='user', lazy='dynamic')
 
     def set_password(self, password):
         """

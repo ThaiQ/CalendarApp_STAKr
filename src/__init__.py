@@ -12,7 +12,7 @@ login = LoginManager(app)
 db = SQLAlchemy(app) 
 
 #routes
-from src.routes import Home, Login, Register, Logout, Calendar
+from src.routes import Home, Login, Register, Logout, Calendar, Settings
 
 #models
 from src.schemas import User
