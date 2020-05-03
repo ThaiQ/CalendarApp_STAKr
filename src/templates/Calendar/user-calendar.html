@@ -1,0 +1,45 @@
+{% extends "Calendar/base-calendar.html" %}
+
+{% block user %}
+
+<div id="make-event-form">
+    {{form.guest_name.label}}: {{form.guest_name()}} <br>
+    {{form.event_name.label}}: {{form.event_name()}} <br>
+    {{form.start_time.label}}: {{form.start_time()}} <br>
+    {{form.end_time.label}}: {{form.end_time()}} <br>
+    {{form.event_description.label}}: {{form.event_description()}} <br>
+    {{form.submit()}}
+<div>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+
+<script type="text/javascript">
+    document.getElementsByClassName("next")[0].onclick = () => {
+        location.href = '/calendar?month={{month[0]+1}}&year={{year}}'
+    }
+    document.getElementsByClassName("prev")[0].onclick = () => {
+        location.href = '/calendar?month={{month[0]-1}}&year={{year}}'
+    }
+
+    $(function() {
+        $.getJSON('/getEventsOnMonth',
+            function(data) {
+                var slots = ({{user.end}} - {{user.start}}) / {{user.duration}};
+                data = data[0]
+                data.forEach((events, index) => {
+                    if (document.getElementById(index)) {
+                        var original = document.getElementById(index).innerHTML
+                        document.getElementById(index).outerHTML = `
+                        <li class='date-with-content' id='${index}'>
+                            ${original}
+                            <div class="date-slots">
+                                ${slots-events.length} slots left
+                            </div>
+                        </li>`
+                    }
+                });
+            });
+            return false;
+        });
+</script>
+{% endblock %}

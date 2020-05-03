@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+</head>
+
+<body style="background-color: #252423;">
+    <div class="month">
+        <ul class="month-header">
+            <div class="prev">&#10094;</div>
+            <div class="next">&#10095;</div>
+            <li>{{month[1]+" "}}<span style="font-size:18px">{{year}}</span></li>
+        </ul>
+    </div>
+    <div>
+        <ul class="days">
+            {% for day in days %}
+            <li>{{day}}</li>
+            {% endfor %}
+
+            {% for date in dates %}
+            {% if date==0 %}
+            <li class="Nodate"></li>
+            {% else %}
+            <li class="date" id="{{date}}">{{date}}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+{% block admin %}{% endblock %}
+{% block user %}{% endblock %}
+
+</html>

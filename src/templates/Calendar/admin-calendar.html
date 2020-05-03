@@ -1,0 +1,39 @@
+{% extends "Calendar/base-calendar.html" %}
+
+{% block admin %}
+<script src="https://code.jquery.com/jquery.js"></script>
+
+<script type="text/javascript">
+    document.getElementsByClassName("next")[0].onclick = () => {
+        location.href = '/calendar?month={{month[0]+1}}&year={{year}}'
+    }
+    document.getElementsByClassName("prev")[0].onclick = () => {
+        location.href = '/calendar?month={{month[0]-1}}&year={{year}}'
+    }
+
+    $(function() {
+        $.getJSON('/getEventsOnMonth',
+            function(data) {
+                data = data[0]
+                data.forEach((events, index) => {
+                    if (events.length!=0) {
+                        events.forEach(event => {
+                            var name = (event.name.length<10) ? event.name : event.name.slice(0,9)+'...'
+
+                            var original = document.getElementById(index).innerHTML
+
+                            document.getElementById(index).outerHTML = `
+                            <li class='date-with-content' id='${index}'>
+                                ${original}
+                                <div class="event-block">
+                                ${name}:<br>${event.start_time} - ${event.end_time}
+                                </div>
+                            </li>`
+                        })
+                    }
+                });
+            });
+            return false;
+        });
+</script>
+{% endblock %}

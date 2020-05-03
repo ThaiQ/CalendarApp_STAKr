@@ -4,21 +4,21 @@ from datetime import datetime
 class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     """event's id"""
-    guest = db.Column(db.String(70), nullable=False)
+    guest = db.Column(db.String(250), nullable=False)
     """guest's name"""
-    event_name = db.Column(db.String(100), nullable=False)
+    event_name = db.Column(db.String(250), nullable=False)
     """event's name"""
-    event_description = db.Column(db.Text(2000), nullable=False)
+    event_description = db.Column(db.String(2000), default="")
     """event's description"""
-    event_date = db.Column(db.Date, nullable=False)
+    event_date = db.Column(db.Integer, nullable=False)
     """event's date"""
-    event_month = db.Column(db.Month, nullable=False)
+    event_month = db.Column(db.Integer, nullable=False)
     """event's month"""
-    event_year = db.Column(db.Year, nullable=False)
+    event_year = db.Column(db.Integer, nullable=False)
     """event's year"""
-    start_hour = db.Column(db.Hour, nullable=False)
+    start_hour = db.Column(db.Integer, nullable=False)
     """event's start hour"""
-    end_hour = db.Column(db.Hour, nullable=False)
+    end_hour = db.Column(db.Integer, nullable=False)
     """event's end hour"""
     length = db.Column(db.Integer)
     """event's  durations"""
