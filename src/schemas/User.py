@@ -10,6 +10,9 @@ class User(UserMixin, db.Model):
     """user's username"""
     email = db.Column(db.String(128), index=True, unique=True)
     """user's email"""
+    start_available = db.Column(db.Integer)
+    end_available = db.Column(db.Integer)
+    meeting_length = db.Column(db.Integer)
     password_hash = db.Column(db.String(128))
     """hashed version of user's password"""
 

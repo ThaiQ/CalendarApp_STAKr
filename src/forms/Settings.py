@@ -36,7 +36,7 @@ class SettingsForm(FlaskForm):
     """Meeting duration"""
 
     timeRange = initTimeRange()
-    "List of tupple of time such as [(0,'9:0AM'), (15,'9:15AM'), (30,'9:30AM'),... (240,'1:0PM'),...]"
+    "List of tuple of time such as [(0,'9:0AM'), (15,'9:15AM'), (30,'9:30AM'),... (240,'1:0PM'),...]"
     start_time = SelectField('Choose a time',choices=timeRange)
     """Start of working hour"""
     end_time = SelectField('Choose a time',choices=timeRange)
