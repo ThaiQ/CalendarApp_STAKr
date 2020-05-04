@@ -3,6 +3,7 @@ app.db
 
 #Ignoring cache
 __pycache__
+config.pyc
 src/__init__.pyc
 src/__pycache__
 src/forms/__pycache__

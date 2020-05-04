@@ -15,6 +15,7 @@ Welcome to STAKr_Calendar's documentation!
    route
    form
    template
+   util
 
 
 Indices and tables
