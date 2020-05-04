@@ -1,14 +1,13 @@
 from flask import render_template
 from flask import redirect
 from flask import flash, request
-from flask_login import current_user, login_user, logout_user
+from flask_login import current_user, logout_user
 from src import app, db
 from src.forms import SettingsForm
 from src.schemas import User
 
 @app.route('/settings', methods=['GET', 'POST'])
 def settings():
-	
 	"""
 	Settings
 		Change Availability
@@ -44,15 +43,4 @@ def settings():
 			db.session.delete(user)
 			db.session.commit()
 			return redirect('/')
-
-		
-	"""
-	if current_form.validate_on_submit():
-		user = User.query.filter_by(username=current_form.username.data).first()
-		if user is None or not user.check_password(current_form.password.data):
-			flash('Invalid username or password')
-			return redirect('/login')
-		login_user(user, remember=current_form.remember_me.data)
-		return redirect('/')
-	"""
 	return render_template('Settings/settings.html', title='Change Settings', form=current_form)

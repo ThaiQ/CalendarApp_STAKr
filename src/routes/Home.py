@@ -5,7 +5,7 @@ from src import app
 @app.route("/")
 def home():
     """
-    Home.
+    Direct to homepage depending on login-credential.
 
     Parameters:
         N/A

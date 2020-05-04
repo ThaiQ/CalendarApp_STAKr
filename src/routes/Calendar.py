@@ -1,14 +1,29 @@
-from flask import render_template, request, jsonify, redirect, request
+from flask import render_template, request, jsonify, redirect, request, flash
 from flask_login import current_user
 from src.schemas import User, Event
 from src.forms import EventForm
 from src.utils import minuteToAmPm
 from src import app, db
-import calendar
 from datetime import datetime
+import calendar
+
+days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+"""Array of days"""
+months = ["", "January", "Feburary", "March", "April", "May", "Jun",
+    "July", "August", "September", "October", "Novermber", "December"]
+"""Array of months"""
 
 @app.route("/calendar")
 def CalendarAdmin():
+    """
+    Home of user and also the meeting page.
+
+    Parameters:
+        N/A
+
+    Returns:
+        Rendered calendar and meetings of the month
+    """
     currentMonth = request.args.get('month')
     currentYear = request.args.get('year')
     if (currentYear is None): currentYear = int(datetime.now().year)
@@ -16,23 +31,19 @@ def CalendarAdmin():
 
     if currentMonth is None: currentMonth = int(datetime.now().month)
     else : currentMonth = int(currentMonth)
-
+    #translate months
     if (currentMonth > 12): 
         currentMonth = 1
         currentYear = currentYear + 1
     elif (currentMonth < 1): 
         currentMonth = 12
         currentYear = currentYear - 1
-    
+    #getting weeks of the month
     fullMonth = calendar.monthcalendar(currentYear, currentMonth)
-
-    days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-    months = ["", "January", "Feburary", "March", "April", "May", "Jun",
-     "July", "August", "September", "October", "Novermber", "December"]
     dates = []
     for week in fullMonth:
         dates.extend(week)
-    
+    #directions
     if current_user.is_authenticated:
         return render_template('Calendar/admin-calendar.html', username=current_user.username,
         dates = dates, days = days, month=[currentMonth, months[currentMonth]], year = currentYear)
@@ -41,6 +52,15 @@ def CalendarAdmin():
 
 @app.route("/<username>", methods=['GET', 'POST'])
 def CalendarUser(username):
+    """
+    Allow to book appointments from a user.
+
+    Parameters:
+        username: user's username (AKA. host's username)
+
+    Returns:
+        Rendered calendar and appointment slots of the month
+    """
     currentMonth = request.args.get('month')
     currentYear = request.args.get('year')
     if (currentYear is None): currentYear = int(datetime.now().year)
@@ -55,26 +75,22 @@ def CalendarUser(username):
     elif (currentMonth < 1): 
         currentMonth = 12
         currentYear = currentYear - 1
-    
+    #translate month
     fullMonth = calendar.monthcalendar(currentYear, currentMonth)
 
-    days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
-    months = ["", "January", "Feburary", "March", "April", "May", "Jun",
-     "July", "August", "September", "October", "Novermber", "December"]
     dates = []
     for week in fullMonth:
         dates.extend(week)
-    
+    #get user and their apointment-slots
     user = User.query.filter_by(username=username).first()
     form = EventForm()
-
     if request.method == "POST" and form.guest_name.data is not None and form.event_date.data is not None and int(request.form['open-slots'].split()[0])>-1:
         name = form.event_name.data
         description = form.event_description.data
         if name is None or name == '': name = form.guest_name.data
         if description is None or description == '': description = "N/A"
         times = request.form['open-slots'].split()
-        print(times)
+        #create events
         event = Event(
             guest=form.guest_name.data,
             event_name=name,
@@ -90,7 +106,7 @@ def CalendarUser(username):
         db.session.add(event)
         db.session.commit()
         return redirect('/')
-
+    #direction
     if user is not None:
         return render_template('Calendar/user-calendar.html', user = user, form = form,
         dates = dates, days = days, month=[currentMonth, months[currentMonth]], year = currentYear)
@@ -98,6 +114,18 @@ def CalendarUser(username):
 
 @app.route("/getEventsOnMonth/<username>/<month>/<year>", methods=['GET'])
 def getEventsOnMonth(username, month, year):
+    """
+    Get all events of a month from a user.
+
+    Parameters:
+        username: user's username (AKA. host's username)
+        month: month to get
+        year: year to get
+
+    Returns:
+        jason of a direct bucket of the month
+        where each bucket is a list of events of that date
+    """
     monthBuckets = []
     date = 0
     while date < 33:
@@ -121,6 +149,20 @@ def getEventsOnMonth(username, month, year):
 
 @app.route("/getslots/<username>/<month>/<date>/<year>", methods=['GET'])
 def getOpenSlots(username, month, date, year):
+    """
+    Get open slots for appointment from a user
+    from a date/month/year
+
+    Parameters:
+        username: user's username (AKA. host's username)
+        month: month to get
+        date: date to get
+        year: year to get
+
+    Returns:
+        jason of a list of paired tuples where:
+        [((start_time, end_time), '9AM to 10PM'),...]
+    """
     user = User.query.filter_by(username=username).first()
     monthBuckets = Event.query.filter_by(host=username, event_date=date, event_month=month, event_year=year).all()
     if user:
@@ -132,12 +174,12 @@ def getOpenSlots(username, month, date, year):
             label = f'{minuteToAmPm(startTime)} to {minuteToAmPm(endTime)}'
             slotsBuckets.append([((startTime,endTime),label)])
             startTime = endTime
-
+        #filter beginning and end times
         slotsBuckets = list(filter(lambda appt: 
             not(user.start_available<=int(''.join(map(str, appt[0][0])))
             and int(''.join(map(str, appt[0][0])))<user.end_available), 
             slotsBuckets))
-
+        #filter used times of other events
         for event in monthBuckets:
             newList = []
             for pair in slotsBuckets:
