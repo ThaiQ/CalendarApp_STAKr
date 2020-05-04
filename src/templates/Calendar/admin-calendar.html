@@ -1,0 +1,53 @@
+{% extends "Calendar/base-calendar.html" %}
+
+{% block admin %}
+<script src="https://code.jquery.com/jquery.js"></script>
+
+<script type="text/javascript">
+    document.getElementsByClassName("next")[0].onclick = () => {
+        location.href = '/calendar?month={{month[0]+1}}&year={{year}}'
+    }
+    document.getElementsByClassName("prev")[0].onclick = () => {
+        location.href = '/calendar?month={{month[0]-1}}&year={{year}}'
+    }
+
+    $(function() {
+        $.getJSON('/getEventsOnMonth/'+`{{username}}/`+`{{month[0]}}/`+`{{year}}`,
+            function(data) {
+                data = data[0]
+                data.forEach((events, index) => {
+                    if (events.length!=0) {
+                        events.forEach(event => {
+
+                            var name = (event.event_name.length<10) ? event.event_name : event.event_name.slice(0,9)+'...'
+
+                            var original = document.getElementById(index).innerHTML
+
+                            document.getElementById(index).outerHTML = `
+                            <li class='date-with-content' id='${index}'>
+                                ${original}
+                                <div class="event-block">
+                                ${name}:<br>${minuteToAmPm(event.start_hour)} - ${minuteToAmPm(event.end_hour)}
+                                </div>
+                            </li>`
+                        })
+                    }
+                });
+            });
+            return false;
+        });
+    function minuteToAmPm(minute){
+        let total = minute / 60
+        let hr = Math.floor(minute / 60)
+        let min = minute % 60
+        let start_time = 9
+        if (min == 0) min = '00'
+        if (start_time+total < 13) {
+            if (start_time + hr == 12)
+                return `${Math.floor(start_time+total)}:${min} P.M.`
+            return `${Math.floor(start_time+total)}:${min} A.M.`
+        }
+        return `${Math.floor(start_time+total-12)}:${min} P.M.`
+    }
+</script>
+{% endblock %}
