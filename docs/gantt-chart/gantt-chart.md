@@ -43,17 +43,36 @@ gantt
 
 
     section Milestone-3_Expected
-    Milestone-3_due (11d - 4/22 ~ 5/03)                     : 2020-04-22, 11d
-    Event Schema (9d)                                       : stage1, 2020-04-24, 1d
-    Setting Page - Frontend (1d)                            : 2020-04-27, 6d
+    Milestone-3_due (4/22 ~ 5/03)                                      : stage1, 2020-04-22, 11d
+    Event Schema (4/27 ~ 4/28)                                         : stage1, 2020-04-27, 1d
+    Setting Page - Frontend (4/27 ~ 4/30)                              : stage1, 2020-04-27, 6d
+    Render Events into Calendar(4/28 ~ 5/03)                           : stage1, 2020-04-28, 6d
 
-    Delete Account - Functionality (1d)                     : after stage1, 1d
-    Set Appointment Availability - Functionality (3d)       : stage2, after stage1, 3d
-    Email Confirmation - Functionality (3d)                 : after stage1, 3d
+    Delete Account - Functionality (4/26 ~ 4/26)                       : stage2, 2020-04-26, 1d
+    Set Appointment Availability - Functionality (05/03 ~ -5/03)       : stage2, 2020-05-03, 3d
+    Email Confirmation - Functionality (4/28 ~ 5/03)                   : stage2, 2020-04-28, 3d
 
-    Guess Page Calendar (5d)                                : after stage2, 5d
-    Meeting Page (A.K.A. Home Page) (5d)                    : after stage2, 5d
+    Guess Page Calendar (05/03 ~ 05/03)                                : after stage2, 5d
+    Meeting Page (A.K.A. Home Page) (4/22 ~ 4/26)                      : after stage2, 5d
 
-    README Documentation (2d)                               : 2020-05-01, 2d
-    Sphinx Documentation (2d)                               : 2020-05-01, 2d
+    README Documentation (2d)                                          : 2020-05-01, 2d
+    Sphinx Documentation (2d)                                          : 2020-05-01, 2d
+
+
+
+    section Milestone-3_Actual
+    Milestone-3_due (4/22 ~ 5/03)                                       : done, 2020-05-03
+    Event Schema (4/27 ~ 4/28)                                          : done, 2020-04-28, 1d
+    Render Events into Calendar(4/25 ~ 5/03)                            : done, 2020-05-03, 9d
+    Setting Page - Frontend (4/27 ~ 5/03)                               : done, 2020-05-03, 7d
+
+    Delete Account - Functionality (4/28 ~ 5/03)                        : done, 2020-05-03, 6d
+    Set Appointment Availability - Functionality (3d)                   : done, 2020-05-03, 
+    Email Confirmation - Functionality (4/26 ~ 5/03)                    : done, 2020-05-03, 8d
+
+    Guess Page Calendar (05/03 ~ 05/03)                                 : done, 2020-05-03, 1d
+    Meeting Page (A.K.A. Home Page) (4/22 ~ 4/26)                       : done, 2020-04-26, 5d
+
+    README Documentation (2d)                                           : done, 2020-05-03, 2d
+    Sphinx Documentation (2d)                                           : done, 2020-05-03, 2d
 ```
