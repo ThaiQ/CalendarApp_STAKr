@@ -49,7 +49,7 @@ Build an application using Python-3 and the Flask Framework to create an appoint
 
 # Project Planner
 ### **Grantt Chart**
-![grantt chart](https://user-images.githubusercontent.com/60629468/79679202-a9259700-81b8-11ea-879c-99a78675ef62.JPG)
+![grantt chart](https://user-images.githubusercontent.com/18486562/80938502-3575b380-8d8e-11ea-967f-776dd8f77460.png)
 
 # Use Case Description
 ### **UML Diagram**  

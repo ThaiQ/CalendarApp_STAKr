@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Requirements &#8212; STAKr  documentation</title>
+    <title>Utils &#8212; STAKr  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -14,8 +14,7 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Schemas" href="schema.html" />
-    <link rel="prev" title="Welcome to STAKr_Calendar’s documentation!" href="index.html" />
+    <link rel="prev" title="Templates" href="template.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -32,32 +31,34 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="requirements">
-<h1>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h1>
-<p>Install Python3 and pip3</p>
-</div>
-<div class="section" id="run-the-project">
-<h1>Run the project<a class="headerlink" href="#run-the-project" title="Permalink to this headline">¶</a></h1>
-<ol class="arabic simple">
-<li><dl class="simple">
-<dt>Install all dependencies with</dt><dd><p>python3 setup.py</p>
+  <div class="section" id="module-src.utils.calendar">
+<span id="utils"></span><h1>Utils<a class="headerlink" href="#module-src.utils.calendar" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="src.utils.calendar.initTimeRange">
+<code class="sig-prename descclassname">src.utils.calendar.</code><code class="sig-name descname">initTimeRange</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.calendar.initTimeRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>tuple of working times from 9AM to 10PM</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>N/A</p>
+</dd>
+<dt>return:</dt><dd><p>list of tuple of paired times between 9AM to 10PM
+[(0,9:00AM),(15,9:15AM),(30,9:30AM),…]</p>
 </dd>
 </dl>
-</li>
-<li><dl class="simple">
-<dt>Run the project with</dt><dd><p>python3 run.py</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="src.utils.calendar.minuteToAmPm">
+<code class="sig-prename descclassname">src.utils.calendar.</code><code class="sig-name descname">minuteToAmPm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">minute</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.utils.calendar.minuteToAmPm" title="Permalink to this definition">¶</a></dt>
+<dd><p>translating from minute to AM or PM
+between 9AM and 10PM</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>minute (int): total number of minute starting from 9AM (0 minute)</p>
+</dd>
+<dt>return:</dt><dd><p>between 9AM and 10PM</p>
 </dd>
 </dl>
-</li>
-</ol>
-</div>
-<div class="section" id="relevant-info">
-<h1>Relevant Info<a class="headerlink" href="#relevant-info" title="Permalink to this headline">¶</a></h1>
-<ol class="arabic simple">
-<li><p>The application is built with python’s Flask module.</p></li>
-<li><p>SQLAlchemy is the main database.</p></li>
-<li><p>Jqerry and Boostrap are used to increase the flow of the website</p></li>
-</ol>
+</dd></dl>
+
 </div>
 
 
@@ -79,22 +80,21 @@
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#run-the-project">Run the project</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#relevant-info">Relevant Info</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Requirements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#run-the-project">Run the project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html#relevant-info">Relevant Info</a></li>
 <li class="toctree-l1"><a class="reference internal" href="schema.html">Schemas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="route.html">Routes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="form.html">Forms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="template.html">Templates</a></li>
-<li class="toctree-l1"><a class="reference internal" href="util.html">Forms</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Utils</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">Welcome to STAKr_Calendar’s documentation!</a></li>
-      <li>Next: <a href="schema.html" title="next chapter">Schemas</a></li>
+      <li>Previous: <a href="template.html" title="previous chapter">Templates</a></li>
   </ul></li>
 </ul>
 </div>
@@ -128,7 +128,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/installation.rst.txt"
+      <a href="_sources/util.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

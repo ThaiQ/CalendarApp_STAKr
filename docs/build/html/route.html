@@ -37,7 +37,7 @@
 <dl class="py function">
 <dt id="src.routes.Home.home">
 <code class="sig-prename descclassname">src.routes.Home.</code><code class="sig-name descname">home</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.routes.Home.home" title="Permalink to this definition">¶</a></dt>
-<dd><p>Home.</p>
+<dd><p>Direct to homepage depending on login-credential.</p>
 <dl class="simple">
 <dt>Parameters:</dt><dd><p>N/A</p>
 </dd>
@@ -72,6 +72,100 @@
 </dl>
 </dd></dl>
 
+<span class="target" id="module-src.routes.Settings"></span><dl class="py function">
+<dt id="src.routes.Settings.settings">
+<code class="sig-prename descclassname">src.routes.Settings.</code><code class="sig-name descname">settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.routes.Settings.settings" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Settings</dt><dd><p>Change Availability</p>
+</dd>
+<dt>Parameters:</dt><dd><p>N/A</p>
+</dd>
+<dt>Returns:</dt><dd><p>Rendered template html</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-src.routes.Logout"></span><dl class="py function">
+<dt id="src.routes.Logout.logout">
+<code class="sig-prename descclassname">src.routes.Logout.</code><code class="sig-name descname">logout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.routes.Logout.logout" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Logout</dt><dd><p>Logs the user out of the site</p>
+</dd>
+<dt>Parameters:</dt><dd><p>N/A</p>
+</dd>
+<dt>Returns:</dt><dd><p>Redirects user to Home page</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-src.routes.Calendar"></span><dl class="py function">
+<dt id="src.routes.Calendar.CalendarAdmin">
+<code class="sig-prename descclassname">src.routes.Calendar.</code><code class="sig-name descname">CalendarAdmin</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.routes.Calendar.CalendarAdmin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Home of user and also the meeting page.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>N/A</p>
+</dd>
+<dt>Returns:</dt><dd><p>Rendered calendar and meetings of the month</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="src.routes.Calendar.CalendarUser">
+<code class="sig-prename descclassname">src.routes.Calendar.</code><code class="sig-name descname">CalendarUser</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.routes.Calendar.CalendarUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allow to book appointments from a user.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>username: user’s username (AKA. host’s username)</p>
+</dd>
+<dt>Returns:</dt><dd><p>Rendered calendar and appointment slots of the month</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt id="src.routes.Calendar.days">
+<code class="sig-prename descclassname">src.routes.Calendar.</code><code class="sig-name descname">days</code><em class="property"> = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']</em><a class="headerlink" href="#src.routes.Calendar.days" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of days</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="src.routes.Calendar.getEventsOnMonth">
+<code class="sig-prename descclassname">src.routes.Calendar.</code><code class="sig-name descname">getEventsOnMonth</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">year</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.routes.Calendar.getEventsOnMonth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all events of a month from a user.</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>username: user’s username (AKA. host’s username)
+month: month to get
+year: year to get</p>
+</dd>
+<dt>Returns:</dt><dd><p>jason of a direct bucket of the month
+where each bucket is a list of events of that date</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="src.routes.Calendar.getOpenSlots">
+<code class="sig-prename descclassname">src.routes.Calendar.</code><code class="sig-name descname">getOpenSlots</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em>, <em class="sig-param"><span class="n">month</span></em>, <em class="sig-param"><span class="n">date</span></em>, <em class="sig-param"><span class="n">year</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.routes.Calendar.getOpenSlots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get open slots for appointment from a user
+from a date/month/year</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>username: user’s username (AKA. host’s username)
+month: month to get
+date: date to get
+year: year to get</p>
+</dd>
+<dt>Returns:</dt><dd><p>jason of a list of paired tuples where:
+[((start_time, end_time), ‘9AM to 10PM’),…]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt id="src.routes.Calendar.months">
+<code class="sig-prename descclassname">src.routes.Calendar.</code><code class="sig-name descname">months</code><em class="property"> = ['', 'January', 'Feburary', 'March', 'April', 'May', 'Jun', 'July', 'August', 'September', 'October', 'Novermber', 'December']</em><a class="headerlink" href="#src.routes.Calendar.months" title="Permalink to this definition">¶</a></dt>
+<dd><p>Array of months</p>
+</dd></dl>
+
 </div>
 
 
@@ -100,6 +194,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Routes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="form.html">Forms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="template.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">Forms</a></li>
 </ul>
 
 <div class="relations">
