@@ -1,0 +1,42 @@
+
+
+<!DOCTYPE html>  
+<html>
+    <head>
+       {% if title %}
+       <title>{{ title }} - STAKr</title>
+       {% else %}
+       <title>STAKr</title>
+       {% endif %}
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </head>
+    <body style="background-color: #252423; color:white">
+
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            {% if current_user.is_anonymous %}
+            <li class="breadcrumb-item"><a href="/login">Sign in</a></li>
+            <li class="breadcrumb-item"><a href="/register">Register</a></li>
+            {% else %}
+            <li class="breadcrumb-item"><a href="/settings">Settings</a></li>
+            <li class="breadcrumb-item"><a href="/logout">Log Out</a></li>
+            {%endif %}
+        </ol>
+      </nav>
+
+      {% block content %}{% endblock %}
+      {% block calendar %}{% endblock %}
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %} 
+    </body>
+</html>

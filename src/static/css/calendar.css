@@ -1,0 +1,84 @@
+ul {list-style-type: none;}
+body {font-family: Verdana, sans-serif;}
+
+.month-header {
+  padding-bottom: 20px;
+  color: white;
+  font-size: 30px;
+}
+
+/* Month*/
+.month {
+  padding: 30px 25px;
+  text-align: center;
+}
+
+/* Month list */
+.month ul {
+  margin: 0;
+  padding: 0;
+}
+
+.month ul li {
+  color: white;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.month .prev {
+  float: left;
+  cursor: pointer;
+}
+
+.month .next {
+  float: right;
+  cursor: pointer;
+}
+
+.weekdays, .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  color: white;
+}
+
+.date {
+  border: 1px solid lightgray;
+  padding: +20%;
+}
+
+.date-with-content {
+  border: 1px solid lightgray;
+  padding: 5px;
+}
+
+.event-block {
+  text-align: left;
+  border: 2px solid white;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.date-slots {
+  text-align: center;
+  border-radius: 10px;
+  padding: 5px;
+  padding-top: 10px;
+}
+
+/*create new event's form */
+#make-event-form {
+  color: white;
+}
+
+.number-date {
+  margin: 5%;
+  margin-bottom: 0px;
+}
+
+.click {
+  cursor: pointer;
+}

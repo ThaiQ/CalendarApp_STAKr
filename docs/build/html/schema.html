@@ -60,6 +60,18 @@
 </dd></dl>
 
 <dl class="py attribute">
+<dt id="src.schemas.User.User.end_available">
+<code class="sig-name descname">end_available</code><a class="headerlink" href="#src.schemas.User.User.end_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>“end working time</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.User.User.events">
+<code class="sig-name descname">events</code><a class="headerlink" href="#src.schemas.User.User.events" title="Permalink to this definition">¶</a></dt>
+<dd><p>Relationship with the Event schema</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt id="src.schemas.User.User.id">
 <code class="sig-name descname">id</code><a class="headerlink" href="#src.schemas.User.User.id" title="Permalink to this definition">¶</a></dt>
 <dd><p>user’s unique id</p>
@@ -68,7 +80,18 @@
 <dl class="py method">
 <dt id="src.schemas.User.User.load_user">
 <code class="sig-name descname">load_user</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.schemas.User.User.load_user" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>load user</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>id (int): user’s id</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.User.User.meeting_length">
+<code class="sig-name descname">meeting_length</code><a class="headerlink" href="#src.schemas.User.User.meeting_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>appointment’s length</p>
+</dd></dl>
 
 <dl class="py attribute">
 <dt id="src.schemas.User.User.password_hash">
@@ -93,10 +116,98 @@
 </dd></dl>
 
 <dl class="py attribute">
+<dt id="src.schemas.User.User.start_available">
+<code class="sig-name descname">start_available</code><a class="headerlink" href="#src.schemas.User.User.start_available" title="Permalink to this definition">¶</a></dt>
+<dd><p>“start working time</p>
+</dd></dl>
+
+<dl class="py attribute">
 <dt id="src.schemas.User.User.username">
 <code class="sig-name descname">username</code><a class="headerlink" href="#src.schemas.User.User.username" title="Permalink to this definition">¶</a></dt>
 <dd><p>user’s username</p>
 </dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-src.schemas.Event"></span><dl class="py class">
+<dt id="src.schemas.Event.Event">
+<em class="property">class </em><code class="sig-prename descclassname">src.schemas.Event.</code><code class="sig-name descname">Event</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.schemas.Event.Event" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="src.schemas.Event.Event.end_hour">
+<code class="sig-name descname">end_hour</code><a class="headerlink" href="#src.schemas.Event.Event.end_hour" title="Permalink to this definition">¶</a></dt>
+<dd><p>event’s end hour</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.Event.Event.event_date">
+<code class="sig-name descname">event_date</code><a class="headerlink" href="#src.schemas.Event.Event.event_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>event’s date</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.Event.Event.event_description">
+<code class="sig-name descname">event_description</code><a class="headerlink" href="#src.schemas.Event.Event.event_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>event’s description</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.Event.Event.event_month">
+<code class="sig-name descname">event_month</code><a class="headerlink" href="#src.schemas.Event.Event.event_month" title="Permalink to this definition">¶</a></dt>
+<dd><p>event’s month</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.Event.Event.event_name">
+<code class="sig-name descname">event_name</code><a class="headerlink" href="#src.schemas.Event.Event.event_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>event’s name</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.Event.Event.event_year">
+<code class="sig-name descname">event_year</code><a class="headerlink" href="#src.schemas.Event.Event.event_year" title="Permalink to this definition">¶</a></dt>
+<dd><p>event’s year</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.Event.Event.guest">
+<code class="sig-name descname">guest</code><a class="headerlink" href="#src.schemas.Event.Event.guest" title="Permalink to this definition">¶</a></dt>
+<dd><p>guest’s name</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.Event.Event.host">
+<code class="sig-name descname">host</code><a class="headerlink" href="#src.schemas.Event.Event.host" title="Permalink to this definition">¶</a></dt>
+<dd><p>host’s name</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.Event.Event.host_id">
+<code class="sig-name descname">host_id</code><a class="headerlink" href="#src.schemas.Event.Event.host_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>host’s id</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.Event.Event.id">
+<code class="sig-name descname">id</code><a class="headerlink" href="#src.schemas.Event.Event.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>event’s id</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.Event.Event.length">
+<code class="sig-name descname">length</code><a class="headerlink" href="#src.schemas.Event.Event.length" title="Permalink to this definition">¶</a></dt>
+<dd><p>event’s  durations</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.Event.Event.start_hour">
+<code class="sig-name descname">start_hour</code><a class="headerlink" href="#src.schemas.Event.Event.start_hour" title="Permalink to this definition">¶</a></dt>
+<dd><p>event’s start hour</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.schemas.Event.Event.user">
+<code class="sig-name descname">user</code><a class="headerlink" href="#src.schemas.Event.Event.user" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -128,6 +239,7 @@
 <li class="toctree-l1"><a class="reference internal" href="route.html">Routes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="form.html">Forms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="template.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">Forms</a></li>
 </ul>
 
 <div class="relations">

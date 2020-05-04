@@ -13,6 +13,15 @@ class User(UserMixin, db.Model):
     password_hash = db.Column(db.String(128))
     """hashed version of user's password"""
 
+    start_available = db.Column(db.Integer, default = 0)
+    """"start working time"""
+    end_available = db.Column(db.Integer, default = 0)
+    """"end working time"""
+    meeting_length = db.Column(db.Integer, default = 0)
+    """appointment's length"""
+    events = db.relationship('Event', backref='user', lazy='dynamic')
+    """Relationship with the Event schema"""
+
     def set_password(self, password):
         """
         Set password for user
@@ -36,11 +45,17 @@ class User(UserMixin, db.Model):
                 user's password
         """
         return check_password_hash(self.password_hash, password)
-
+    
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
     #helps load a user from the database
     @login.user_loader
     def load_user(id):
+        """
+        load user
+
+        Parameters:
+            id (int): user's id
+        """
         return User.query.get(int(id))

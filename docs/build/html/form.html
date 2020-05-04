@@ -142,6 +142,124 @@
 
 </dd></dl>
 
+<span class="target" id="module-src.forms.Event"></span><dl class="py class">
+<dt id="src.forms.Event.EventForm">
+<em class="property">class </em><code class="sig-prename descclassname">src.forms.Event.</code><code class="sig-name descname">EventForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#src.forms.Event.EventForm" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="src.forms.Event.EventForm.end_time">
+<code class="sig-name descname">end_time</code><em class="property"> = &lt;UnboundField(SelectField, ('End time',), {'choices': [(0, '9:00 A.M.'), (15, '9:15 A.M.'), (30, '9:30 A.M.'), (45, '9:45 A.M.'), (60, '10:00 A.M.'), (75, '10:15 A.M.'), (90, '10:30 A.M.'), (105, '10:45 A.M.'), (120, '11:00 A.M.'), (135, '11:15 A.M.'), (150, '11:30 A.M.'), (165, '11:45 A.M.'), (180, '12:00 P.M.'), (195, '12:15 P.M.'), (210, '12:30 P.M.'), (225, '12:45 P.M.'), (240, '1:00 P.M.'), (255, '1:15 P.M.'), (270, '1:30 P.M.'), (285, '1:45 P.M.'), (300, '2:00 P.M.'), (315, '2:15 P.M.'), (330, '2:30 P.M.'), (345, '2:45 P.M.'), (360, '3:00 P.M.'), (375, '3:15 P.M.'), (390, '3:30 P.M.'), (405, '3:45 P.M.'), (420, '4:00 P.M.'), (435, '4:15 P.M.'), (450, '4:30 P.M.'), (465, '4:45 P.M.'), (480, '5:00 P.M.'), (495, '5:15 P.M.'), (510, '5:30 P.M.'), (525, '5:45 P.M.'), (540, '6:00 P.M.'), (555, '6:15 P.M.'), (570, '6:30 P.M.'), (585, '6:45 P.M.'), (600, '7:00 P.M.'), (615, '7:15 P.M.'), (630, '7:30 P.M.'), (645, '7:45 P.M.'), (660, '8:00 P.M.'), (675, '8:15 P.M.'), (690, '8:30 P.M.'), (705, '8:45 P.M.'), (720, '9:00 P.M.'), (735, '9:15 P.M.'), (750, '9:30 P.M.'), (765, '9:45 P.M.'), (780, '10:00 P.M.')]})&gt;</em><a class="headerlink" href="#src.forms.Event.EventForm.end_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>End of working hour</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.forms.Event.EventForm.event_date">
+<code class="sig-name descname">event_date</code><em class="property"> = &lt;UnboundField(IntegerField, ('Date of event',), {})&gt;</em><a class="headerlink" href="#src.forms.Event.EventForm.event_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Event’s date</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.forms.Event.EventForm.event_description">
+<code class="sig-name descname">event_description</code><em class="property"> = &lt;UnboundField(StringField, ('Description',), {})&gt;</em><a class="headerlink" href="#src.forms.Event.EventForm.event_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Event’s description</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.forms.Event.EventForm.event_month">
+<code class="sig-name descname">event_month</code><em class="property"> = &lt;UnboundField(IntegerField, ('Month of event',), {})&gt;</em><a class="headerlink" href="#src.forms.Event.EventForm.event_month" title="Permalink to this definition">¶</a></dt>
+<dd><p>Event’s date</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.forms.Event.EventForm.event_name">
+<code class="sig-name descname">event_name</code><em class="property"> = &lt;UnboundField(StringField, ('Title of Appointment (optional)',), {})&gt;</em><a class="headerlink" href="#src.forms.Event.EventForm.event_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of event (optional)</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.forms.Event.EventForm.event_year">
+<code class="sig-name descname">event_year</code><em class="property"> = &lt;UnboundField(IntegerField, ('Year of event',), {})&gt;</em><a class="headerlink" href="#src.forms.Event.EventForm.event_year" title="Permalink to this definition">¶</a></dt>
+<dd><p>Event’s date</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.forms.Event.EventForm.guest_name">
+<code class="sig-name descname">guest_name</code><em class="property"> = &lt;UnboundField(StringField, ('Your name',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#src.forms.Event.EventForm.guest_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Guest Name</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.forms.Event.EventForm.start_time">
+<code class="sig-name descname">start_time</code><em class="property"> = &lt;UnboundField(SelectField, ('Start time',), {'choices': [(0, '9:00 A.M.'), (15, '9:15 A.M.'), (30, '9:30 A.M.'), (45, '9:45 A.M.'), (60, '10:00 A.M.'), (75, '10:15 A.M.'), (90, '10:30 A.M.'), (105, '10:45 A.M.'), (120, '11:00 A.M.'), (135, '11:15 A.M.'), (150, '11:30 A.M.'), (165, '11:45 A.M.'), (180, '12:00 P.M.'), (195, '12:15 P.M.'), (210, '12:30 P.M.'), (225, '12:45 P.M.'), (240, '1:00 P.M.'), (255, '1:15 P.M.'), (270, '1:30 P.M.'), (285, '1:45 P.M.'), (300, '2:00 P.M.'), (315, '2:15 P.M.'), (330, '2:30 P.M.'), (345, '2:45 P.M.'), (360, '3:00 P.M.'), (375, '3:15 P.M.'), (390, '3:30 P.M.'), (405, '3:45 P.M.'), (420, '4:00 P.M.'), (435, '4:15 P.M.'), (450, '4:30 P.M.'), (465, '4:45 P.M.'), (480, '5:00 P.M.'), (495, '5:15 P.M.'), (510, '5:30 P.M.'), (525, '5:45 P.M.'), (540, '6:00 P.M.'), (555, '6:15 P.M.'), (570, '6:30 P.M.'), (585, '6:45 P.M.'), (600, '7:00 P.M.'), (615, '7:15 P.M.'), (630, '7:30 P.M.'), (645, '7:45 P.M.'), (660, '8:00 P.M.'), (675, '8:15 P.M.'), (690, '8:30 P.M.'), (705, '8:45 P.M.'), (720, '9:00 P.M.'), (735, '9:15 P.M.'), (750, '9:30 P.M.'), (765, '9:45 P.M.'), (780, '10:00 P.M.')]})&gt;</em><a class="headerlink" href="#src.forms.Event.EventForm.start_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start of working hour</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.forms.Event.EventForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Make Appointment',), {})&gt;</em><a class="headerlink" href="#src.forms.Event.EventForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sign-in button</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.forms.Event.EventForm.timeRange">
+<code class="sig-name descname">timeRange</code><em class="property"> = [(0, '9:00 A.M.'), (15, '9:15 A.M.'), (30, '9:30 A.M.'), (45, '9:45 A.M.'), (60, '10:00 A.M.'), (75, '10:15 A.M.'), (90, '10:30 A.M.'), (105, '10:45 A.M.'), (120, '11:00 A.M.'), (135, '11:15 A.M.'), (150, '11:30 A.M.'), (165, '11:45 A.M.'), (180, '12:00 P.M.'), (195, '12:15 P.M.'), (210, '12:30 P.M.'), (225, '12:45 P.M.'), (240, '1:00 P.M.'), (255, '1:15 P.M.'), (270, '1:30 P.M.'), (285, '1:45 P.M.'), (300, '2:00 P.M.'), (315, '2:15 P.M.'), (330, '2:30 P.M.'), (345, '2:45 P.M.'), (360, '3:00 P.M.'), (375, '3:15 P.M.'), (390, '3:30 P.M.'), (405, '3:45 P.M.'), (420, '4:00 P.M.'), (435, '4:15 P.M.'), (450, '4:30 P.M.'), (465, '4:45 P.M.'), (480, '5:00 P.M.'), (495, '5:15 P.M.'), (510, '5:30 P.M.'), (525, '5:45 P.M.'), (540, '6:00 P.M.'), (555, '6:15 P.M.'), (570, '6:30 P.M.'), (585, '6:45 P.M.'), (600, '7:00 P.M.'), (615, '7:15 P.M.'), (630, '7:30 P.M.'), (645, '7:45 P.M.'), (660, '8:00 P.M.'), (675, '8:15 P.M.'), (690, '8:30 P.M.'), (705, '8:45 P.M.'), (720, '9:00 P.M.'), (735, '9:15 P.M.'), (750, '9:30 P.M.'), (765, '9:45 P.M.'), (780, '10:00 P.M.')]</em><a class="headerlink" href="#src.forms.Event.EventForm.timeRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of tuple of time such as [(0,’9:0AM’), (15,’9:15AM’), (30,’9:30AM’),… (240,’1:0PM’),…]</p>
+</dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-src.forms.Settings"></span><dl class="py class">
+<dt id="src.forms.Settings.SettingsForm">
+<em class="property">class </em><code class="sig-prename descclassname">src.forms.Settings.</code><code class="sig-name descname">SettingsForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#src.forms.Settings.SettingsForm" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="src.forms.Settings.SettingsForm.choices">
+<code class="sig-name descname">choices</code><em class="property"> = [(15, '15 minute'), (30, '30 minute'), (60, '60 minute')]</em><a class="headerlink" href="#src.forms.Settings.SettingsForm.choices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Meeting duration list [(dataValue, textLabel), (value, textLabel)]</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.forms.Settings.SettingsForm.delete">
+<code class="sig-name descname">delete</code><em class="property"> = &lt;UnboundField(SubmitField, ('Delete Account?',), {})&gt;</em><a class="headerlink" href="#src.forms.Settings.SettingsForm.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete Account</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.forms.Settings.SettingsForm.duration">
+<code class="sig-name descname">duration</code><em class="property"> = &lt;UnboundField(SelectField, ('Choose a time',), {'choices': [(15, '15 minute'), (30, '30 minute'), (60, '60 minute')]})&gt;</em><a class="headerlink" href="#src.forms.Settings.SettingsForm.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Meeting duration</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.forms.Settings.SettingsForm.emailconfirm">
+<code class="sig-name descname">emailconfirm</code><em class="property"> = &lt;UnboundField(BooleanField, ('Email Confirmation?',), {})&gt;</em><a class="headerlink" href="#src.forms.Settings.SettingsForm.emailconfirm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Email confirmation check box</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.forms.Settings.SettingsForm.end_time">
+<code class="sig-name descname">end_time</code><em class="property"> = &lt;UnboundField(SelectField, ('Choose a time',), {'choices': [(0, '9:00 A.M.'), (15, '9:15 A.M.'), (30, '9:30 A.M.'), (45, '9:45 A.M.'), (60, '10:00 A.M.'), (75, '10:15 A.M.'), (90, '10:30 A.M.'), (105, '10:45 A.M.'), (120, '11:00 A.M.'), (135, '11:15 A.M.'), (150, '11:30 A.M.'), (165, '11:45 A.M.'), (180, '12:00 P.M.'), (195, '12:15 P.M.'), (210, '12:30 P.M.'), (225, '12:45 P.M.'), (240, '1:00 P.M.'), (255, '1:15 P.M.'), (270, '1:30 P.M.'), (285, '1:45 P.M.'), (300, '2:00 P.M.'), (315, '2:15 P.M.'), (330, '2:30 P.M.'), (345, '2:45 P.M.'), (360, '3:00 P.M.'), (375, '3:15 P.M.'), (390, '3:30 P.M.'), (405, '3:45 P.M.'), (420, '4:00 P.M.'), (435, '4:15 P.M.'), (450, '4:30 P.M.'), (465, '4:45 P.M.'), (480, '5:00 P.M.'), (495, '5:15 P.M.'), (510, '5:30 P.M.'), (525, '5:45 P.M.'), (540, '6:00 P.M.'), (555, '6:15 P.M.'), (570, '6:30 P.M.'), (585, '6:45 P.M.'), (600, '7:00 P.M.'), (615, '7:15 P.M.'), (630, '7:30 P.M.'), (645, '7:45 P.M.'), (660, '8:00 P.M.'), (675, '8:15 P.M.'), (690, '8:30 P.M.'), (705, '8:45 P.M.'), (720, '9:00 P.M.'), (735, '9:15 P.M.'), (750, '9:30 P.M.'), (765, '9:45 P.M.'), (780, '10:00 P.M.')]})&gt;</em><a class="headerlink" href="#src.forms.Settings.SettingsForm.end_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>End of working hour</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.forms.Settings.SettingsForm.start_time">
+<code class="sig-name descname">start_time</code><em class="property"> = &lt;UnboundField(SelectField, ('Choose a time',), {'choices': [(0, '9:00 A.M.'), (15, '9:15 A.M.'), (30, '9:30 A.M.'), (45, '9:45 A.M.'), (60, '10:00 A.M.'), (75, '10:15 A.M.'), (90, '10:30 A.M.'), (105, '10:45 A.M.'), (120, '11:00 A.M.'), (135, '11:15 A.M.'), (150, '11:30 A.M.'), (165, '11:45 A.M.'), (180, '12:00 P.M.'), (195, '12:15 P.M.'), (210, '12:30 P.M.'), (225, '12:45 P.M.'), (240, '1:00 P.M.'), (255, '1:15 P.M.'), (270, '1:30 P.M.'), (285, '1:45 P.M.'), (300, '2:00 P.M.'), (315, '2:15 P.M.'), (330, '2:30 P.M.'), (345, '2:45 P.M.'), (360, '3:00 P.M.'), (375, '3:15 P.M.'), (390, '3:30 P.M.'), (405, '3:45 P.M.'), (420, '4:00 P.M.'), (435, '4:15 P.M.'), (450, '4:30 P.M.'), (465, '4:45 P.M.'), (480, '5:00 P.M.'), (495, '5:15 P.M.'), (510, '5:30 P.M.'), (525, '5:45 P.M.'), (540, '6:00 P.M.'), (555, '6:15 P.M.'), (570, '6:30 P.M.'), (585, '6:45 P.M.'), (600, '7:00 P.M.'), (615, '7:15 P.M.'), (630, '7:30 P.M.'), (645, '7:45 P.M.'), (660, '8:00 P.M.'), (675, '8:15 P.M.'), (690, '8:30 P.M.'), (705, '8:45 P.M.'), (720, '9:00 P.M.'), (735, '9:15 P.M.'), (750, '9:30 P.M.'), (765, '9:45 P.M.'), (780, '10:00 P.M.')]})&gt;</em><a class="headerlink" href="#src.forms.Settings.SettingsForm.start_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start of working hour</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.forms.Settings.SettingsForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Save Changes',), {})&gt;</em><a class="headerlink" href="#src.forms.Settings.SettingsForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submit to Save changes</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="src.forms.Settings.SettingsForm.timeRange">
+<code class="sig-name descname">timeRange</code><em class="property"> = [(0, '9:00 A.M.'), (15, '9:15 A.M.'), (30, '9:30 A.M.'), (45, '9:45 A.M.'), (60, '10:00 A.M.'), (75, '10:15 A.M.'), (90, '10:30 A.M.'), (105, '10:45 A.M.'), (120, '11:00 A.M.'), (135, '11:15 A.M.'), (150, '11:30 A.M.'), (165, '11:45 A.M.'), (180, '12:00 P.M.'), (195, '12:15 P.M.'), (210, '12:30 P.M.'), (225, '12:45 P.M.'), (240, '1:00 P.M.'), (255, '1:15 P.M.'), (270, '1:30 P.M.'), (285, '1:45 P.M.'), (300, '2:00 P.M.'), (315, '2:15 P.M.'), (330, '2:30 P.M.'), (345, '2:45 P.M.'), (360, '3:00 P.M.'), (375, '3:15 P.M.'), (390, '3:30 P.M.'), (405, '3:45 P.M.'), (420, '4:00 P.M.'), (435, '4:15 P.M.'), (450, '4:30 P.M.'), (465, '4:45 P.M.'), (480, '5:00 P.M.'), (495, '5:15 P.M.'), (510, '5:30 P.M.'), (525, '5:45 P.M.'), (540, '6:00 P.M.'), (555, '6:15 P.M.'), (570, '6:30 P.M.'), (585, '6:45 P.M.'), (600, '7:00 P.M.'), (615, '7:15 P.M.'), (630, '7:30 P.M.'), (645, '7:45 P.M.'), (660, '8:00 P.M.'), (675, '8:15 P.M.'), (690, '8:30 P.M.'), (705, '8:45 P.M.'), (720, '9:00 P.M.'), (735, '9:15 P.M.'), (750, '9:30 P.M.'), (765, '9:45 P.M.'), (780, '10:00 P.M.')]</em><a class="headerlink" href="#src.forms.Settings.SettingsForm.timeRange" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of tuple of time such as [(0,’9:0AM’), (15,’9:15AM’), (30,’9:30AM’),… (240,’1:0PM’),…]</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -170,6 +288,7 @@
 <li class="toctree-l1"><a class="reference internal" href="route.html">Routes</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Forms</a></li>
 <li class="toctree-l1"><a class="reference internal" href="template.html">Templates</a></li>
+<li class="toctree-l1"><a class="reference internal" href="util.html">Forms</a></li>
 </ul>
 
 <div class="relations">

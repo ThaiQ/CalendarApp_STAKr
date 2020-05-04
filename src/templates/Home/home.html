@@ -1,8 +1,13 @@
-{% extends "Home/base.html" %}
+{% extends "base.html" %}
  
 {% block content %}
+    <div style='color:dodgerblue'>
+    <h1>STAKr Secheduling</h1>
+    <p> You are a VIP !!!!!!!!</p>
+    </div>
+
 	{% if current_user.is_anonymous %}
-	<h1>Welcome to SPAKr!</h1>
+	<h1>Welcome to STAKr!</h1>
 	{% else %}
     <h1>Hello, {{ current_user.username }}!</h1>
 	{% endif %}
