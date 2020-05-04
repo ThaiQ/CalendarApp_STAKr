@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, redirect
 from flask_login import current_user
 from src import app
 
@@ -32,4 +32,6 @@ def home():
             'body': 'shengda419'
 		}
     ]
+    if current_user.is_authenticated:
+        return redirect('/calendar')
     return render_template('Home/home.html', title='Home', posts=posts_list)

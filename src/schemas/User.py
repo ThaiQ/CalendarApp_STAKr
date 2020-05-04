@@ -17,7 +17,7 @@ class User(UserMixin, db.Model):
     start_available = db.Column(db.Integer, default = 0)
     end_available = db.Column(db.Integer, default = 0)
     meeting_length = db.Column(db.Integer, default = 0)
-    #events = db.relationship('Event', backref='user', lazy='dynamic')
+    events = db.relationship('Event', backref='user', lazy='dynamic')
 
     def set_password(self, password):
         """
@@ -42,7 +42,7 @@ class User(UserMixin, db.Model):
                 user's password
         """
         return check_password_hash(self.password_hash, password)
-
+    
     def __repr__(self):
         return '<User {}>'.format(self.username)
 

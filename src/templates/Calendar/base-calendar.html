@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
+{% block calendar %}
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
 </head>
@@ -32,5 +32,4 @@
 
 {% block admin %}{% endblock %}
 {% block user %}{% endblock %}
-
-</html>
+{% endblock %}

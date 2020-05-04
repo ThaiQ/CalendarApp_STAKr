@@ -3,35 +3,43 @@
 {% block user %}
 
 <div id="make-event-form">
+<form action="" method="post">
+    <h3>Appointment with {{user.username}}</h3>
+    {{form.event_date.label}}: {{form.event_date(type='hidden')}} 
+    <nobr id="date-holder">Select a date from above</nobr> <br>
+    {{form.event_month(type='hidden')}}
+    {{form.event_year(type='hidden')}}
     {{form.guest_name.label}}: {{form.guest_name()}} <br>
     {{form.event_name.label}}: {{form.event_name()}} <br>
-    {{form.start_time.label}}: {{form.start_time()}} <br>
-    {{form.end_time.label}}: {{form.end_time()}} <br>
+    <select id="open-slots" name="open-slots">
+        <option value="-1">Select An Appointment</option>
+    </select>
     {{form.event_description.label}}: {{form.event_description()}} <br>
     {{form.submit()}}
+</form>
 <div>
 
 <script src="https://code.jquery.com/jquery.js"></script>
 
 <script type="text/javascript">
     document.getElementsByClassName("next")[0].onclick = () => {
-        location.href = '/calendar?month={{month[0]+1}}&year={{year}}'
+        location.href = `/{{user.username}}`+'?month={{month[0]+1}}&year={{year}}'
     }
     document.getElementsByClassName("prev")[0].onclick = () => {
-        location.href = '/calendar?month={{month[0]-1}}&year={{year}}'
+        location.href = `/{{user.username}}`+'?month={{month[0]-1}}&year={{year}}'
     }
 
     $(function() {
-        $.getJSON('/getEventsOnMonth',
+        $.getJSON('/getEventsOnMonth/'+`{{user.username}}`+'/'+`{{month[0]}}`+'/'+`{{year}}`,
             function(data) {
-                var slots = ({{user.end}} - {{user.start}}) / {{user.duration}};
+                var slots = Math.floor(({{user.end_available}} - {{user.start_available}}) / {{user.meeting_length}});
                 data = data[0]
                 data.forEach((events, index) => {
                     if (document.getElementById(index)) {
                         var original = document.getElementById(index).innerHTML
                         document.getElementById(index).outerHTML = `
-                        <li class='date-with-content' id='${index}'>
-                            ${original}
+                        <li class='date-with-content click' id='${index}' onclick="selectDate(this)">
+                            <p class='number-date'>${original}</p>
                             <div class="date-slots">
                                 ${slots-events.length} slots left
                             </div>
@@ -41,5 +49,30 @@
             });
             return false;
         });
+</script>
+
+<script type="text/javascript">
+    function selectDate(event) {
+        document.getElementById('open-slots').outerHTML=`
+            <select id="open-slots" name="open-slots">
+                <option value="-1">Select An Appointment</option>
+            </select>
+        `
+        let date = event.getElementsByClassName("number-date")[0].innerHTML
+        $.getJSON('/getslots/'+`{{user.username}}/`+`{{month[0]}}/`+date+`/{{year}}`,
+            function(data) {
+                data.forEach(slot=>{
+                    slot = slot[0]
+                    $('#open-slots').append(
+                        `<option value='${slot[0][0]+" "+slot[0][1]}'> ${slot[1]} </option>`
+                    )
+                })
+            }
+        )
+        document.getElementById("event_date").value=date
+        document.getElementById("event_month").value={{month[0]}}
+        document.getElementById("event_year").value={{year}}
+        document.getElementById("date-holder").innerHTML = {{month[0]}}+"/"+date+"/"+{{year}}
+    }
 </script>
 {% endblock %}

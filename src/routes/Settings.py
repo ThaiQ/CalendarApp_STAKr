@@ -30,6 +30,7 @@ def settings():
 		user = User.query.filter_by(username=current_user.username).first()
 		if request.form['submit_button'] == 'Save Changes':			
 			#if user submits, updates database with times
+			print(f'{current_form.start_time.data} {current_form.end_time.data} {current_form.start_time.data < current_form.end_time.data}')
 			if(current_form.start_time.data < current_form.end_time.data):
 				user.start_available = current_form.start_time.data
 				user.end_available = current_form.end_time.data

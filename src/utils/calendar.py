@@ -1,3 +1,6 @@
+from src.schemas import User
+from flask_login import current_user
+
 def minuteToAmPm(minute):
     total = minute / 60
     hr = minute // 60
@@ -6,6 +9,8 @@ def minuteToAmPm(minute):
     if (min == 0) :
         min = '00'
     if (start_time+total < 13) :
+        if start_time + hr == 12:
+            return f'{int(start_time+total)}:{min} P.M.'
         return f'{int(start_time+total)}:{min} A.M.'
     return f'{int(start_time+total-12)}:{min} P.M.'
 

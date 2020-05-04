@@ -73,3 +73,12 @@ body {font-family: Verdana, sans-serif;}
 #make-event-form {
   color: white;
 }
+
+.number-date {
+  margin: 5%;
+  margin-bottom: 0px;
+}
+
+.click {
+  cursor: pointer;
+}

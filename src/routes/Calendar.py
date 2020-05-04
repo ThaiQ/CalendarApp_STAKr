@@ -1,8 +1,9 @@
-from flask import render_template, request, jsonify, redirect
+from flask import render_template, request, jsonify, redirect, request
 from flask_login import current_user
-from src.schemas import User
+from src.schemas import User, Event
 from src.forms import EventForm
-from src import app
+from src.utils import minuteToAmPm
+from src import app, db
 import calendar
 from datetime import datetime
 
@@ -33,12 +34,12 @@ def CalendarAdmin():
         dates.extend(week)
     
     if current_user.is_authenticated:
-        return render_template('Calendar/admin-calendar.html', 
+        return render_template('Calendar/admin-calendar.html', username=current_user.username,
         dates = dates, days = days, month=[currentMonth, months[currentMonth]], year = currentYear)
     return redirect('/')
 
 
-@app.route("/calendar/<username>")
+@app.route("/<username>", methods=['GET', 'POST'])
 def CalendarUser(username):
     currentMonth = request.args.get('month')
     currentYear = request.args.get('year')
@@ -65,43 +66,87 @@ def CalendarUser(username):
         dates.extend(week)
     
     user = User.query.filter_by(username=username).first()
-    user = {
-        "start": 0,
-        "end": 1800,
-        "duration": 60
-    }
     form = EventForm()
+
+    if request.method == "POST" and form.guest_name.data is not None and form.event_date.data is not None and int(request.form['open-slots'].split()[0])>-1:
+        name = form.event_name.data
+        description = form.event_description.data
+        if name is None or name == '': name = form.guest_name.data
+        if description is None or description == '': description = "N/A"
+        times = request.form['open-slots'].split()
+        print(times)
+        event = Event(
+            guest=form.guest_name.data,
+            event_name=name,
+            event_description=description,
+            event_date=form.event_date.data,
+            event_month=form.event_month.data,
+            event_year=form.event_year.data,
+            start_hour = int(times[0]),
+            end_hour = int(times[1]),
+            length = int(times[1])-int(times[0]),
+            host = user.username
+        )
+        db.session.add(event)
+        db.session.commit()
+        return redirect('/')
+
     if user is not None:
         return render_template('Calendar/user-calendar.html', user = user, form = form,
         dates = dates, days = days, month=[currentMonth, months[currentMonth]], year = currentYear)
     return redirect('/')
 
-@app.route("/getEventsOnMonth", methods=['GET'])
-def getEventsOnMonth():
+@app.route("/getEventsOnMonth/<username>/<month>/<year>", methods=['GET'])
+def getEventsOnMonth(username, month, year):
     monthBuckets = []
-    
     date = 0
     while date < 33:
         monthBuckets.append([])
         date = date + 1
-
-    monthBuckets[4] = [
-        {
-            "name" : "PResident and dev team",
-            "date" : 1,
-            "month" : 4,
-            "year"  : 2000,
-            "start_time": "9A.M",
-            "end_time": "9:10A.M"
-        },
-        {
-            "name" : "PResident and dev teamPResident and dev team",
-            "date" : 1,
-            "month" : 4,
-            "year"  : 2000,
-            "start_time": "9A.M",
-            "end_time": "9:10A.M"
-        }
-    ]
-
+    events = Event.query.filter_by(host=username, event_month=month, event_year=year).all()
+    for event in events:
+        monthBuckets[event.event_date].extend([{
+            "guest":event.guest,
+            "host":event.host,
+            "event_name": event.event_name,
+            "event_date": event.event_date,
+            "event_description" : event.event_description,
+            "length": event.length,
+            "event_month": event.event_month,
+            "event_year": event.event_year,
+            "start_hour": event.start_hour,
+            "end_hour": event.end_hour,
+        }])
     return jsonify([monthBuckets])
+
+@app.route("/getslots/<username>/<month>/<date>/<year>", methods=['GET'])
+def getOpenSlots(username, month, date, year):
+    user = User.query.filter_by(username=username).first()
+    monthBuckets = Event.query.filter_by(host=username, event_date=date, event_month=month, event_year=year).all()
+    if user:
+        slotsBuckets = []
+        startTime = user.start_available
+        endTime = startTime
+        while endTime + user.meeting_length <= user.end_available:
+            endTime = startTime + user.meeting_length
+            label = f'{minuteToAmPm(startTime)} to {minuteToAmPm(endTime)}'
+            slotsBuckets.append([((startTime,endTime),label)])
+            startTime = endTime
+
+        slotsBuckets = list(filter(lambda appt: 
+            not(user.start_available<=int(''.join(map(str, appt[0][0])))
+            and int(''.join(map(str, appt[0][0])))<user.end_available), 
+            slotsBuckets))
+
+        for event in monthBuckets:
+            newList = []
+            for pair in slotsBuckets:
+                start_time = pair[0][0][0]
+                end_time = pair[0][0][1]
+                if (start_time<=event.start_hour and event.end_hour<=end_time) : pass
+                elif (start_time<event.start_hour and event.start_hour<end_time and end_time<event.end_hour) : pass
+                elif (event.start_hour<start_time and startTime<event.end_hour and event.end_hour<end_time) : pass
+                else : newList.append(pair)
+            slotsBuckets = newList
+        return jsonify(slotsBuckets)
+    return jsonify([])

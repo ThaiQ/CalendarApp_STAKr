@@ -12,13 +12,14 @@
     }
 
     $(function() {
-        $.getJSON('/getEventsOnMonth',
+        $.getJSON('/getEventsOnMonth/'+`{{username}}/`+`{{month[0]}}/`+`{{year}}`,
             function(data) {
                 data = data[0]
                 data.forEach((events, index) => {
                     if (events.length!=0) {
                         events.forEach(event => {
-                            var name = (event.name.length<10) ? event.name : event.name.slice(0,9)+'...'
+
+                            var name = (event.event_name.length<10) ? event.event_name : event.event_name.slice(0,9)+'...'
 
                             var original = document.getElementById(index).innerHTML
 
@@ -26,7 +27,7 @@
                             <li class='date-with-content' id='${index}'>
                                 ${original}
                                 <div class="event-block">
-                                ${name}:<br>${event.start_time} - ${event.end_time}
+                                ${name}:<br>${minuteToAmPm(event.start_hour)} - ${minuteToAmPm(event.end_hour)}
                                 </div>
                             </li>`
                         })
@@ -35,5 +36,18 @@
             });
             return false;
         });
+    function minuteToAmPm(minute){
+        let total = minute / 60
+        let hr = Math.floor(minute / 60)
+        let min = minute % 60
+        let start_time = 9
+        if (min == 0) min = '00'
+        if (start_time+total < 13) {
+            if (start_time + hr == 12)
+                return `${Math.floor(start_time+total)}:${min} P.M.`
+            return `${Math.floor(start_time+total)}:${min} A.M.`
+        }
+        return `${Math.floor(start_time+total-12)}:${min} P.M.`
+    }
 </script>
 {% endblock %}

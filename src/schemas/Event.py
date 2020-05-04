@@ -6,6 +6,10 @@ class Event(db.Model):
     """event's id"""
     guest = db.Column(db.String(250), nullable=False)
     """guest's name"""
+    host = db.Column(db.String(250), nullable=False)
+    """host's name"""
+    host_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    """host's id"""
     event_name = db.Column(db.String(250), nullable=False)
     """event's name"""
     event_description = db.Column(db.String(2000), default="")
