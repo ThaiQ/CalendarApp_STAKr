@@ -67,7 +67,7 @@ gantt
     Setting Page - Frontend (4/27 ~ 5/03)                               : done, 2020-05-03, 7d
 
     Delete Account - Functionality (4/28 ~ 5/03)                        : done, 2020-05-03, 6d
-    Set Appointment Availability - Functionality (3d)                   : done, 2020-05-03, 
+    Set Appointment Availability - Functionality (05/03 ~ -5/03)        : done, 2020-05-03, 1d
     Email Confirmation - Functionality (4/26 ~ 5/03)                    : done, 2020-05-03, 8d
 
     Guess Page Calendar (05/03 ~ 05/03)                                 : done, 2020-05-03, 1d
