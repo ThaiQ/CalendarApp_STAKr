@@ -1,0 +1,45 @@
+/*h1{
+  color: rgb(255,255,255);
+}*/
+
+a[href^="https"]:hover {
+  background-color: white ;
+}
+
+
+ div #mainheader{
+  text-align: center;
+  color: rgb(255,255,255);
+} 
+
+/*body{ 
+  background-color:white;
+}*/
+
+#mainheader{
+  text-align: center;
+}
+
+ul > h4{
+  border: solid;
+  color: black;
+}
+
+div.container a {
+	color: white;
+	text-decoration: none;
+}
+
+.bg-img{
+	/*the image used*/
+	background-image:  linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("images/ironMan.jpg");
+
+	/*full height */
+    height: 100vh;
+
+	/*center and scale the image nicely*/
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
