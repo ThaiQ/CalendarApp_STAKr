@@ -17,12 +17,10 @@
                 data = data[0]
                 data.forEach((events, index) => {
                     if (events.length!=0) {
+                        events.sort(function(e1,e2){return e1.start_hour-e2.start_hour})
                         events.forEach(event => {
-
                             var name = (event.event_name.length<10) ? event.event_name : event.event_name.slice(0,9)+'...'
-
                             var original = document.getElementById(index).innerHTML
-
                             document.getElementById(index).outerHTML = `
                             <li class='date-with-content' id='${index}'>
                                 ${original}
