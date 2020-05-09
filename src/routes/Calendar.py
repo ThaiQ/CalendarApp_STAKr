@@ -49,7 +49,6 @@ def CalendarAdmin():
         dates = dates, days = days, month=[currentMonth, months[currentMonth]], year = currentYear)
     return redirect('/')
 
-
 @app.route("/<username>", methods=['GET', 'POST'])
 def CalendarUser(username):
     """
