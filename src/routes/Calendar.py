@@ -174,11 +174,13 @@ def getOpenSlots(username, month, date, year):
             label = f'{minuteToAmPm(startTime)} to {minuteToAmPm(endTime)}'
             slotsBuckets.append([((startTime,endTime),label)])
             startTime = endTime
-        #filter beginning and end times
-        slotsBuckets = list(filter(lambda appt: 
-            not(user.start_available<=int(''.join(map(str, appt[0][0])))
-            and int(''.join(map(str, appt[0][0])))<user.end_available), 
-            slotsBuckets))
+        # #filter beginning and end times
+        newList = []
+        for pair in slotsBuckets:
+            start_time = pair[0][0][0]
+            end_time = pair[0][0][1]
+            if (user.start_available<=start_time and end_time<=user.end_available): newList.append(pair)
+        slotsBuckets = newList
         #filter used times of other events
         for event in monthBuckets:
             newList = []

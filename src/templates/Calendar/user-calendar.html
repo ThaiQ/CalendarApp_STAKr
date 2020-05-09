@@ -56,8 +56,7 @@
         document.getElementById('open-slots').outerHTML=`
             <select id="open-slots" name="open-slots">
                 <option value="-1">Select An Appointment</option>
-            </select>
-        `
+            </select>`
         let date = event.getElementsByClassName("number-date")[0].innerHTML
         $.getJSON('/getslots/'+`{{user.username}}/`+`{{month[0]}}/`+date+`/{{year}}`,
             function(data) {
