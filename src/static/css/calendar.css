@@ -1,6 +1,16 @@
 ul {list-style-type: none;}
 body {font-family: Verdana, sans-serif;}
 
+.whole-calendar-size {
+  width: 80%;
+  position: relative;
+  left: 10%;
+}
+
+.whole-calendar-size2 {
+
+}
+
 .month-header {
   padding-bottom: 20px;
   color: white;
@@ -38,10 +48,16 @@ body {font-family: Verdana, sans-serif;}
 
 .weekdays, .days {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(max-content , 1fr));
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   color: white;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.today {
+  background-color: rgb(81, 81, 146);
 }
 
 .date {
@@ -49,17 +65,31 @@ body {font-family: Verdana, sans-serif;}
   padding: +20%;
 }
 
+.date:hover {
+  background-color: rgb(81, 81, 146);
+}
+
 .date-with-content {
   border: 1px solid lightgray;
   padding: 5px;
+}
+
+.date-with-content:hover {
+  background-color: rgb(81, 81, 146);
 }
 
 .event-block {
   text-align: left;
   border: 2px solid white;
   border-radius: 10px;
+  margin-top: 5px;
   margin-bottom: 5px;
   padding: 5px;
+}
+
+#descpt {
+  margin-bottom: 5px;
+  width: 30%;
 }
 
 .date-slots {
@@ -71,7 +101,10 @@ body {font-family: Verdana, sans-serif;}
 
 /*create new event's form */
 #make-event-form {
+  position: relative;
+  left: 40%;
   color: white;
+  width: fit-content;
 }
 
 .number-date {
@@ -81,4 +114,13 @@ body {font-family: Verdana, sans-serif;}
 
 .click {
   cursor: pointer;
+}
+
+#choose-time-label {
+  margin-top: 8px;
+}
+
+#appt-button {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
