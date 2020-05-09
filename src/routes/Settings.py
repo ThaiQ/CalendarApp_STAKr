@@ -1,6 +1,6 @@
 from flask import render_template
 from flask import redirect
-from flask import flash, request
+from flask import flash, request, url_for
 from flask_login import current_user, logout_user
 from src import app, db
 from src.forms import SettingsForm
@@ -20,7 +20,7 @@ def settings():
 
 	"""
 	#handles if someone types in this url when already logged in
-	
+
 	if not current_user.is_authenticated:
 		return redirect('/')
 	
@@ -42,4 +42,5 @@ def settings():
 			db.session.delete(user)
 			db.session.commit()
 			return redirect('/')
-	return render_template('Settings/settings.html', title='Change Settings', form=current_form)
+	link = url_for("CalendarUser",username=current_user.username, _external=True)
+	return render_template('Settings/settings.html', title='Change Settings', form=current_form, link=link)
