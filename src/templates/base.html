@@ -1,45 +1,53 @@
-
-
-<!DOCTYPE html>  
+<!DOCTYPE html>
 <html>
-    <head>
-       {% if title %}
-       <title>{{ title }} - STAKr</title>
-       {% else %}
-       <title>STAKr</title>
-       {% endif %}
-       <!--Google API's for Fonts and Material Icons-->
-       <link rel="stylesheet"href="https://fonts.googleapis.com/css?family=Font+Name">
-       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <!--Bootstrap-->
-       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
-    <body style="background-color: #252423; color:white">
 
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/">Home</a></li>
-            {% if current_user.is_anonymous %}
-            <li class="breadcrumb-item"><a href="/login">Sign in</a></li>
-            <li class="breadcrumb-item"><a href="/register">Register</a></li>
-            {% else %}
-            <li class="breadcrumb-item"><a href="/settings">Settings</a></li>
-            <li class="breadcrumb-item"><a href="/logout">Log Out</a></li>
-            {%endif %}
-        </ol>
-      </nav>
+<head>
+  {% if title %}
+  <title>{{ title }} - STAKr</title>
+  {% else %}
+  <title>STAKr</title>
+  {% endif %}
+  <!--Google API's for Fonts and Material Icons-->
+  <link href="https://fonts.googleapis.com/css?family=Font+Name">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- particles.js lib - https://github.com/VincentGarreau/particles.js -->
+  <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
 
-      {% block content %}{% endblock %}
-      {% block calendar %}{% endblock %}
+<body style="background-color: #252423; color:white">
+  <div id="particles-js">  </div>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Home</a></li>
+        {% if current_user.is_anonymous %}
+        <li class="breadcrumb-item"><a href="/login">Sign in</a></li>
+        <li class="breadcrumb-item"><a href="/register">Register</a></li>
+        {% else %}
+        <li class="breadcrumb-item"><a href="/settings">Settings</a></li>
+        <li class="breadcrumb-item"><a href="/logout">Log Out</a></li>
+        {%endif %}
+      </ol>
+    </nav>
 
-      {% with messages = get_flashed_messages() %}
-        {% if messages %}
-          <ul>
-              {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-      {% endwith %} 
-    </body>
+    {% block content %}{% endblock %}
+    {% block calendar %}{% endblock %}
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</body>
+
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='particles/particle.css') }}">
+  <script src="{{url_for('static', filename='particles/particle.js')}}"></script>
+
 </html>

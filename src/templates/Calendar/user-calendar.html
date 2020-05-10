@@ -2,6 +2,8 @@
 
 {% block user %}
 
+<style>#particles-js { height: 155vh !important; }</style>
+
 <script>
     let ele = document.getElementsByClassName("whole-calendar")
     if (ele) {
@@ -58,19 +60,21 @@
     $(function() {
         $.getJSON('/getEventsOnMonth/'+`{{user.username}}`+'/'+`{{month[0]}}`+'/'+`{{year}}`,
             function(data) {
-                var slots = Math.floor(({{user.end_available}} - {{user.start_available}}) / {{user.meeting_length}});
                 data = data[0]
                 let currentDate = new Date()
                 data.forEach((events, index) => {
                     if (document.getElementById(index) && index>=currentDate.getDate()) {
                         var original = document.getElementById(index).innerHTML
-                        document.getElementById(index).outerHTML = `
-                        <li class='date-with-content click' id='${index}' onclick="selectDate(this)">
-                            <p class='number-date'>${original}</p>
-                            <div class="date-slots">
-                                <strong>${slots-events.length}</strong> slots left
-                            </div>
-                        </li>`
+                        $.getJSON('/getslots/'+`{{user.username}}/`+`{{month[0]}}/`+original+`/{{year}}`,
+                        (data)=>{
+                            document.getElementById(index).outerHTML = `
+                            <li class='date-with-content click' id='${index}' onclick="selectDate(this)">
+                                <p class='number-date'>${original}</p>
+                                <div class="date-slots">
+                                    <strong>${data.length}</strong> slots left
+                                </div>
+                            </li>`
+                        })
                     }
                 });
             });
