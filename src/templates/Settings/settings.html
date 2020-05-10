@@ -1,38 +1,32 @@
 {% extends "base.html" %}
  
 {% block content %}
-	<h1>Settings:</h1>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/setting.css') }}">
+<form id='setting-form' action="" method="post" novalidate>
+	<div id='g-header'>
+		<h1>Settings:</h1>
+		<p>Availability between 9am-10pm (please use 24 hour clock): </p>
+	</div>
+	
+	<label for="exampleFormControlInput1" id='g-work-label'>Working Hours</label>
 
-	<p>Availability between 9am-10pm (please use 24 hour clock): </p>
-	<form action="" method="post" novalidate>
-		<p>
-		   {# this is a comment
-			you did not make form.available in setting form so it crashed
-			{{ form.available.label }}<br>
-			{{ form.available(size=32) }}  
-			#}
-		</p>
-		
-		<div>
-			<p>Working Hours</p>
-			<p>Start: {{form.start_time()}}</p>
-			<p>End: {{form.end_time()}}</p>
-		</div>
+	<p id='g-start'>Start: {{form.start_time(class="form-control", id="exampleFormControlSelect1")}}</p>
+	<p id='g-end'>End: {{form.end_time(class="form-control", id="exampleFormControlSelect1")}}</p>
 
-		<div>
-			<p> Length of appointment?</p>
-			{{form.duration()}}
-		</div>
+	<label for="exampleFormControlInput1" id='g-duration-label'> Length of appointment?</label>
+	<div id='g-duration'>
+		{{form.duration(class="form-control", id="exampleFormControlSelect1")}}
+	</div>
 
-		{# may be you dont need these now
-		<p>{{ form.fifteen() }} {{ form.fifteen.label }}</p>
-		<p>{{ form.thirty() }} {{ form.thirty.label }}</p>
-		<p>{{ form.sixty() }} {{ form.sixty.label }}</p>
-		#}
+	<div id='g-email'>
+		{{ form.emailconfirm() }} <label for="exampleFormControlInput1">{{ form.emailconfirm.label }}</label>
+	</div>
 
-        <p>{{ form.emailconfirm() }} {{ form.emailconfirm.label }}</p>
-		<input type="submit" name="submit_button" value="Delete Account">
-		<input type="submit" name="submit_button" value="Save Changes">
-	</form>
-	<p>Appointment-link: <a href={{link}}>{{link}}</a></p>
+	<input id='g-delete' class="btn btn-danger" type="submit" name="submit_button" value="Delete Account">
+	<input id='g-save' class="btn btn-primary" type="submit" name="submit_button" value="Save Changes">
+
+	<div id='g-link'>
+		<p>Appointment-link: <a href={{link}}>{{link}}</a></p>
+	</div>
+</form>
 {% endblock %}

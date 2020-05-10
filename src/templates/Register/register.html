@@ -1,55 +1,57 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Register</h1>
-<form action="" method="post">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+
+<form id='register-form' action="" method="post">
+    <h1 id='p-title'>Register</h1>
     {{ form.hidden_tag() }}
-    
-    
-    <p> 
-        {{ form.firstname.label }}  <br>
-        {{ form.firstname(size=32)}}
+ 
+    <p id='p-nameFirst'> 
+        <label>{{ form.firstname.label }}</label>
+        {{ form.firstname(type="text", class="form-control", placeholder="First name")}}
     </p>
 
-    <p> 
-        {{ form.lastname.label }}  <br>
-        {{ form.lastname(size=32)}}  
+    <p id='p-nameLast'> 
+        <label>{{ form.lastname.label }}</label>  <br>
+        {{ form.lastname(type="text", class="form-control", placeholder="Last name")}}  
     </p>
 
-    <p>
-        {{ form.username.label }} <br>
-        {{ form.username(size=32)}}
+    <p id='p-username'>
+        <label>{{ form.username.label }}</label> <br>
+        {{ form.username(type="text", class="form-control", placeholder="Username")}}
 		{% for error in form.username.errors %}
 		<span style="color: red;">[{{ error}}]</span>
 		{% endfor %}
     </p>
 
-    <p>
-        {{ form.email.label }} <br>
-        {{ form.email(size=32)}}
+    <p id='p-email1'>
+        <label>{{ form.email.label }}</label> <br>
+        {{ form.email(type="email", class="form-control", placeholder="Email")}}
 		{% for error in form.email.errors %}
 		<span style="color: red;">[{{ error}}]</span>
 		{% endfor %}
     </p>
 
-    <p>
-        {{ form.email2.label }} <br>
-        {{ form.email2(size=32)}}
+    <p id='p-email2'>
+        <label>{{ form.email2.label }}</label> <br>
+        {{ form.email2(type="email", class="form-control", placeholder="Repeat email")}}
     </p>
 
 
-    <p>
-        {{ form.password.label }} <br>
-        {{ form.password(size=32)}}
+    <p id='p-password1'>
+        <label>{{ form.password.label }}</label> <br>
+        {{ form.password(type="password", class="form-control", placeholder="Password")}}
 		{% for error in form.password.errors %}
 		<span style="color: red;">[{{ error}}]</span>
 		{% endfor %}
     </p>
 
-    <p>
-        {{ form.password2.label }} <br>
-        {{ form.password2(size=32)}}
+    <p id='p-password2'>
+        <label>{{ form.password2.label }}</label> <br>
+        {{ form.password2(type="password", class="form-control", placeholder="Repeat password")}}
     </p>
-    <p>{{ form.submit() }} </p>
+    <p id='p-submit'> {{ form.submit(class="btn btn-light") }} </p>
 </form>
 {% endblock %}
