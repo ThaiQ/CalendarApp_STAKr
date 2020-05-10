@@ -2,7 +2,14 @@
 
 {% block admin %}
 <script src="https://code.jquery.com/jquery.js"></script>
-
+<script>
+    let ele = document.getElementsByClassName("whole-calendar")
+    if (ele) {
+        for (let i = 0 ; i<ele.length;i ++){
+            ele[i].classList.add("whole-calendar-size2")
+        }
+    }
+</script>
 <script type="text/javascript">
     document.getElementsByClassName("next")[0].onclick = () => {
         location.href = '/calendar?month={{month[0]+1}}&year={{year}}'
@@ -17,15 +24,18 @@
                 data = data[0]
                 data.forEach((events, index) => {
                     if (events.length!=0) {
-                        events.sort(function(e1,e2){return e1.start_hour-e2.start_hour})
+                        events.sort(function(event1,event2){return event1.start_hour-event2.start_hour})
                         events.forEach(event => {
-                            var name = (event.event_name.length<10) ? event.event_name : event.event_name.slice(0,9)+'...'
-                            var original = document.getElementById(index).innerHTML
+                            let descpt = event.event_description==='N/A'? '':event.event_description
+                            console.log(event.event_description)
+                            let name = (event.event_name.length<10) ? event.event_name : event.event_name.slice(0,15)+'...'
+                            let original = document.getElementById(index).innerHTML
                             document.getElementById(index).outerHTML = `
-                            <li class='date-with-content' id='${index}'>
+                            <li class='date-with-content' id=${index}>
                                 ${original}
                                 <div class="event-block">
-                                ${name}:<br>${minuteToAmPm(event.start_hour)} - ${minuteToAmPm(event.end_hour)}
+                                    ${name}:<br>${minuteToAmPm(event.start_hour)} - ${minuteToAmPm(event.end_hour)}
+                                    <p id='descpt'>${descpt}</p>
                                 </div>
                             </li>`
                         })
@@ -34,6 +44,7 @@
             });
             return false;
         });
+
     function minuteToAmPm(minute){
         let total = minute / 60
         let hr = Math.floor(minute / 60)
@@ -46,6 +57,11 @@
             return `${Math.floor(start_time+total)}:${min} A.M.`
         }
         return `${Math.floor(start_time+total-12)}:${min} P.M.`
+    }
+
+    let current_date = new Date()
+    if (current_date.getFullYear()=={{year}} && current_date.getMonth()+1=={{month[0]}}) {
+        document.getElementById(current_date.getDate()).classList.add("today");
     }
 </script>
 {% endblock %}

@@ -104,6 +104,7 @@ def CalendarUser(username):
         )
         db.session.add(event)
         db.session.commit()
+        flash('Appointment made!')
         return redirect('/')
     #direction
     if user is not None:
@@ -187,6 +188,7 @@ def getOpenSlots(username, month, date, year):
                 start_time = pair[0][0][0]
                 end_time = pair[0][0][1]
                 if (start_time<=event.start_hour and event.end_hour<=end_time) : pass
+                elif (event.start_hour<=start_time and event.end_hour>=end_time) : pass
                 elif (start_time<event.start_hour and event.start_hour<end_time and end_time<event.end_hour) : pass
                 elif (event.start_hour<start_time and startTime<event.end_hour and event.end_hour<end_time) : pass
                 else : newList.append(pair)
