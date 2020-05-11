@@ -3,17 +3,19 @@
 {% block calendar %}
 <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/calendar.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body style="background-color: #252423;">
-    <div class="month">
+    <div class="month whole-calendar">
         <ul class="month-header">
             <div class="prev">&#10094;</div>
             <div class="next">&#10095;</div>
             <li>{{month[1]+" "}}<span style="font-size:18px">{{year}}</span></li>
         </ul>
     </div>
-    <div>
+    <div class="whole-calendar">
         <ul class="days">
             {% for day in days %}
             <li>{{day}}</li>
