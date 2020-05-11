@@ -1,4 +1,6 @@
 ﻿# STAKr
+### Visit us at [https://stakr-calendar.herokuapp.com/](https://stakr-calendar.herokuapp.com/)
+---
 By: Alex Montgomery (AMontgomery123), Thai Quach (ThaiQ), Sean Milner(shengda419), Nguyen Cuu Khanh (khanhsjsu)
 
 **Problem Statement**  
