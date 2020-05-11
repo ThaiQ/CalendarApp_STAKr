@@ -1,0 +1,109 @@
+/*this is the Settings Title area*/
+#settingsTitle {
+    text-align: center;
+    font-family: "Oxygen", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 40px;
+}
+
+.settings-directions {
+    position: relative;
+    left: 1%;
+    font-family: "Oxygen", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.settings-otheroptions {
+    position: relative;
+    left: 1%;
+    font-family: "Oxygen", sans-serif;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+p {
+    position: relative;
+    left: 2%;
+    font-family: "Oxygen", sans-serif;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+.settings-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.remember-box {
+    position: relative; 
+    width: 30px;
+    height: 30px;
+    top: 8px;
+    left: 5%;
+}
+
+#remember {
+    position: relative; 
+    left: 35%; 
+    top: 61%;
+    font-size: 25px;
+}
+
+#remember-label {
+    position: relative;
+    left: 5%;
+}
+
+/*this is the appointment link*/
+#appointment-link{
+    padding-top: 10px;
+    width: 500px; 
+    height: 21px; 
+    font-family: "Oxygen", sans-serif; 
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px; 
+    line-height: 18px;
+    display: flex;
+    align-items: left;
+    text-decoration-line: underline;
+    text-transform: uppercase;
+    color: #E0E0E0;
+}
+
+/*this is the login button*/
+.settings-savebutton{
+    font-family: 'Oxygen', sans-serif;
+    position: relative;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.54);
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 23px;
+    width: 151px;
+    height: 50px;
+    background: #EB5757;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-color: #EB5757;
+    border-radius: 7px;
+}
