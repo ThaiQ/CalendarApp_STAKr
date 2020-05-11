@@ -1,19 +1,33 @@
+
 {% extends "base.html" %}
- 
+
 {% block content %}
-    <h1>Sign In</h1>
-    <form action="" method="post" novalidate>
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}
-        </p>
-        <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
-        <p>{{ form.submit() }}</p>
-    </form>
-    <a href="/register">Register for a new account!</a>
+<!--this is the log in form-->
+<form id='sigin-form' action="" method="post" novalidate>
+    <!--this is the account circle-->
+    <i id='g-icon' class="material-icons anonymous-profile">account_circle</i>
+
+    {{ form.hidden_tag() }}
+    <div id='g-username'>
+        {{ form.username(type="text", class="form-control", placeholder=" USERNAME") }}
+    </div>
+    <div id='g-password'>
+        {{ form.password(type="password", class="form-control", placeholder=" PASSWORD") }}
+    </div>
+
+    <div id='submit'>
+        {{ form.submit(class="btn btn-info") }}
+    </div>
+
+    <div id='remember'>
+        {{ form.remember_me(class="form-check-input", id="defaultCheck1") }}
+        {{ form.remember_me.label }}
+    </div>
+    
+    <div id='g-reg-link'>
+        <a id="signup-link" href="{{ url_for('register') }}">Don't have an account? </a>
+    </div>
+</form>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 {% endblock %}

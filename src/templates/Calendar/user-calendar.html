@@ -2,22 +2,50 @@
 
 {% block user %}
 
-<div id="make-event-form">
+<style>#particles-js { height: 155vh !important; }</style>
+
+<script>
+    let ele = document.getElementsByClassName("whole-calendar")
+    if (ele) {
+        for (let i = 0 ; i<ele.length;i ++){
+            ele[i].classList.add("whole-calendar-size")
+        }
+    }
+</script>
+
 <form action="" method="post">
-    <h3>Appointment with {{user.username}}</h3>
-    {{form.event_date.label}}: {{form.event_date(type='hidden')}} 
-    <nobr id="date-holder">Select a date from above</nobr> <br>
-    {{form.event_month(type='hidden')}}
-    {{form.event_year(type='hidden')}}
-    {{form.guest_name.label}}: {{form.guest_name()}} <br>
-    {{form.event_name.label}}: {{form.event_name()}} <br>
-    <select id="open-slots" name="open-slots">
-        <option value="-1">Select An Appointment</option>
-    </select>
-    {{form.event_description.label}}: {{form.event_description()}} <br>
-    {{form.submit()}}
+    <div id="make-event-form" class="form-group">
+        <div id='g-header'>
+            <h3>Appointment with {{user.username}}</h3>
+            <label>{{form.event_date.label}}: </label> 
+            <nobr id="date-holder">Select a date from above</nobr>
+            {{form.event_date(type='hidden')}}
+            {{form.event_month(type='hidden')}}
+            {{form.event_year(type='hidden')}}
+        </div>
+        <div id='g-name'>
+            <label>{{form.guest_name.label}}</label>
+            {{form.guest_name(type="text", class="form-control", placeholder="First and last name")}}
+        </div>
+        <div class="form-group" id='g-time'>
+            <label id='choose-time-label'>Choose your time: </label>
+            <select id="open-slots" class="form-control" name="open-slots">
+                <option value="-1">Select An Appointment</option>
+            </select>
+            </div>
+        <div id='g-event'>
+            <label>{{form.event_name.label}}</label>
+            {{form.event_name(type="text", class="form-control", placeholder="Event's Name")}} 
+        </div>
+        <div id='g-desc'>
+            <label>{{form.event_description.label}} (optional)</label>
+            {{form.event_description(type="text", class="form-control", placeholder="Short description")}}
+        </div>
+        <div id='g-submit'>
+            {{form.submit(class="btn btn-light", id="appt-button")}}
+        </div>
+    </div>
 </form>
-<div>
 
 <script src="https://code.jquery.com/jquery.js"></script>
 
@@ -32,18 +60,21 @@
     $(function() {
         $.getJSON('/getEventsOnMonth/'+`{{user.username}}`+'/'+`{{month[0]}}`+'/'+`{{year}}`,
             function(data) {
-                var slots = Math.floor(({{user.end_available}} - {{user.start_available}}) / {{user.meeting_length}});
                 data = data[0]
+                let currentDate = new Date()
                 data.forEach((events, index) => {
-                    if (document.getElementById(index)) {
+                    if (document.getElementById(index) && index>=currentDate.getDate()) {
                         var original = document.getElementById(index).innerHTML
-                        document.getElementById(index).outerHTML = `
-                        <li class='date-with-content click' id='${index}' onclick="selectDate(this)">
-                            <p class='number-date'>${original}</p>
-                            <div class="date-slots">
-                                ${slots-events.length} slots left
-                            </div>
-                        </li>`
+                        $.getJSON('/getslots/'+`{{user.username}}/`+`{{month[0]}}/`+original+`/{{year}}`,
+                        (data)=>{
+                            document.getElementById(index).outerHTML = `
+                            <li class='date-with-content click' id='${index}' onclick="selectDate(this)">
+                                <p class='number-date'>${original}</p>
+                                <div class="date-slots">
+                                    <strong>${data.length}</strong> slots left
+                                </div>
+                            </li>`
+                        })
                     }
                 });
             });
@@ -54,10 +85,9 @@
 <script type="text/javascript">
     function selectDate(event) {
         document.getElementById('open-slots').outerHTML=`
-            <select id="open-slots" name="open-slots">
+            <select id="open-slots" class="form-control" name="open-slots">
                 <option value="-1">Select An Appointment</option>
-            </select>
-        `
+            </select>`
         let date = event.getElementsByClassName("number-date")[0].innerHTML
         $.getJSON('/getslots/'+`{{user.username}}/`+`{{month[0]}}/`+date+`/{{year}}`,
             function(data) {
@@ -73,6 +103,10 @@
         document.getElementById("event_month").value={{month[0]}}
         document.getElementById("event_year").value={{year}}
         document.getElementById("date-holder").innerHTML = {{month[0]}}+"/"+date+"/"+{{year}}
+        //Add outliner
+        let ele = document.getElementsByClassName("today")[0]
+        if (ele) ele.classList.remove("today")
+        document.getElementById(date).classList.add("today")
     }
 </script>
 {% endblock %}

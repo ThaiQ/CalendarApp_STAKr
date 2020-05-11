@@ -1,20 +1,42 @@
 {% extends "base.html" %}
  
 {% block content %}
-    <div style='color:dodgerblue'>
-    <h1>STAKr Secheduling</h1>
-    <p> You are a VIP !!!!!!!!</p>
-    </div>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+<style>#particles-js { height: 280vh !important; }</style>
+<div id='homepage'>
+    <h1 id='g-header'>Welcome to STAKr Calendar</h1>
 
-	{% if current_user.is_anonymous %}
-	<h1>Welcome to STAKr!</h1>
-	{% else %}
-    <h1>Hello, {{ current_user.username }}!</h1>
-	{% endif %}
-	<p>Project Contributors: </p>
-    {% for post in posts %}
-        <div>
-            <p>{{ post.author.username }}: {{ post.body }}</p>
-        </div>
-    {% endfor %}
+    <p id='g-intro'>This is a Calendar-App to help you organize your appointments!</p>
+    <p id='g-intro2'>Simply By</p>
+    
+    <p id='g-reg'>Register an account!</p>
+    <img id='gp-reg' src="/static/pictures/register.png" alt="register">
+
+    <hr id='break-line'>
+
+    <p id='g-set'>Set your availability!</p>
+    <img id='gp-set' src="/static/pictures/settings.png" alt="setting">
+    
+    <hr id='break-line'>
+
+    <p id='g-make'>Send your link to your client! They don't need an account to make appointments!</p>
+    <img id='gp-make' src="/static/pictures/makeapt.png" alt="make-apt">
+
+    <p id='g-view'>See your appointments!</p>
+    <img id='gp-view' src="/static/pictures/viewapt.png" alt="view-apt">
+
+    <h2 id='g-devs'>Your Developers</h2>
+
+    <img id='gp-khanh' src="/static/pictures/khanh.png" alt="khanh">
+    <img id='gp-thai' src="/static/pictures/thai.png" alt="thai">
+    <img id='gp-alex' src="/static/pictures/alex.png" alt="alex">
+    <img id='gp-sean' src="/static/pictures/sean.png" alt="sean">
+    <p id='g-khanh'>{{name.khanh}}</p>
+    <p id='g-thai'>{{name.thai}}</p>
+    <p id='g-alex'>{{name.alex}}</p>
+    <p id='g-sean'>{{name.sean}}</p>
+    <video id='g-video' width="640" height="480" controls>
+        <source src="/static/home.webm" type="video/webm">
+    </video>
+</div>
 {% endblock %}

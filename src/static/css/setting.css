@@ -1,0 +1,41 @@
+#setting-form {
+    width: fit-content;
+    position: relative;
+    left: 35%;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    grid-template-areas:
+    'header header'
+    'work work'
+    'start end'
+    'durationLB durationLB'
+    'duration email'
+    'save save'
+    'delete delete'
+    'link link';
+}
+#g-duration-label { grid-area: durationLB; margin: 0px;}
+#g-header { 
+    grid-area: header; 
+    margin: 0px;
+    text-align: center;
+    margin-top: 30px;
+}
+#g-work-label { grid-area: work; margin: 0px;}
+#g-start { grid-area: start; margin: 0px;}
+#g-end { grid-area: end; margin: 0px;}
+#g-duration { grid-area: duration; margin: 0px;}
+#g-email { grid-area: email; margin: 0px;}
+#g-delete { grid-area: delete; margin: 0px;}
+#g-save { grid-area: save; margin: 0px;}
+#g-link { grid-area: link; margin: 0px;}
+
+label {
+    font-size: 20px;
+    margin: 0px;
+}
+p {
+    font-size: 20px;
+    margin: 0px;
+}
