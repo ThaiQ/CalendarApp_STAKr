@@ -1,0 +1,74 @@
+hr {
+    border: 2px solid #485564;
+    width: 60%;
+    margin-top: 5%;
+    display: block;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#homepage {
+    position: relative;
+    display: grid;
+    grid-row-gap: 10px;
+    width: fit-content;
+    grid-template-areas:
+    'header header header header'
+    'intro intro intro intro'
+    'intro2 intro2 intro2 intro2'
+    'reg reg regpc regpc'
+    'set set setpc setpc'
+    'make make makepc makepc'
+    'view view viewpc viewpc'
+    'video video video video'
+    'break break break break'
+    'dev dev dev dev'
+    'khanhpc thaipc alexpc seanpc'
+    'khanh thai alex sean';
+}
+#break-line {grid-area: break;}
+#g-video { grid-area: video; display: block;
+    margin-left: auto;
+    margin-right: auto;}
+#g-header { grid-area: header; text-align: center; font-size: 50px;}
+#gp-khanh { grid-area: khanhpc; width: 180px;   display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;}
+#gp-thai { grid-area: thaipc; width: 180px;   display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;}
+#gp-alex { grid-area: alexpc; width: 180px;   display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;}
+#gp-sean { grid-area: seanpc; width: 180px;   display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;}
+#g-khanh { grid-area: khanh; font-size: 20px; text-align: center;}
+#g-thai { grid-area: thai; font-size: 20px; text-align: center;}
+#g-alex { grid-area: alex; font-size: 20px; text-align: center;}
+#g-sean { grid-area: sean; font-size: 20px; text-align: center;}
+#g-devs {grid-area: dev; text-align: center; font-size: 40px; margin-bottom: 10px;}
+#gp-reg { grid-area: regpc; width: 50%;   display: block;
+    margin-left: auto;
+    margin-right: auto;}
+#gp-set { grid-area: setpc; width: 50%;   display: block;
+    margin-left: auto;
+    margin-right: auto;}
+#gp-make { grid-area: makepc; width: 50%;   display: block;
+    margin-left: auto;
+    margin-right: auto;}
+#gp-view { grid-area: viewpc; width: 50%;   display: block;
+    margin-left: auto;
+    margin-right: auto;}
+#g-intro { grid-area: intro; font-size: 30px; text-align: center;}
+#g-intro2 { grid-area: intro2; font-size: 30px; text-align: center;}
+#g-reg { grid-area: reg; font-size: 40px; text-align: center; position: relative; top: 50%;}
+#g-set { grid-area: set; font-size: 40px; text-align: center; position: relative; top: 50%;}
+#g-make { grid-area: make; font-size: 40px; text-align: center; position: relative; top: 50%;}
+#g-view { grid-area: view; font-size: 40px; text-align: center; position: relative; top: 50%;}

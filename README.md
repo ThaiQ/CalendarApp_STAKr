@@ -21,12 +21,30 @@ Build an application using Python-3 and the Flask Framework to create an appoint
 ## Run Project with <nobr>run.py</nobr>
     python3 run.py
 
-## Utilized Libraries
-    Flask
-    Python's calendar
-    Python's datetime
-    Jquery
-    Bootstrap
+## Framework
+- [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+
+## Support libraries
+- [Python's calendar](https://docs.python.org/3/library/calendar.html)
+- [Python's datetime](https://docs.python.org/3/library/datetime.html)
+- [Jquery](https://api.jquery.com/)
+
+## Styling libraries
+- [Bootstrap](https://getbootstrap.com/)
+- [JSparticle by Vincent Garreau](https://github.com/VincentGarreau/particles.js/)
+- [Material Icon](https://google.github.io/material-design-icons/)
+
+---
+# Preview
+## Register
+![register](https://user-images.githubusercontent.com/18486562/81507293-37210900-92b1-11ea-9a33-7ffa1f9677c2.png)
+## Setting
+![setting](https://user-images.githubusercontent.com/18486562/81507237-ce399100-92b0-11ea-824c-3bd23ed17c0d.png)
+## Make appointments
+![userCalendar](https://user-images.githubusercontent.com/18486562/81507215-ad713b80-92b0-11ea-9276-de252fd8e82d.png)
+## View appointments
+![calendar](https://user-images.githubusercontent.com/18486562/81507384-ed84ee00-92b1-11ea-859f-bbc1b2617891.png)
+
 ---
 # Product  
 **Functional Requirements:**  

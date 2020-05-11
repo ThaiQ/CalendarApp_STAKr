@@ -1,0 +1,33 @@
+#register-form {
+    margin-top: 10%;
+    width: fit-content;
+    position: relative;
+    left: 35%;
+    display: grid;
+    grid-column-gap: 20px;
+    grid-template-areas:
+    'header header'
+    'first last'
+    'user user'
+    'email1 email2'
+    'pass1 pass2'
+    'submit submit';
+}
+#p-title { 
+    grid-area: header; 
+    text-align: center;
+    margin-top: 30px;
+}
+#p-nameFirst { grid-area: first; }
+#p-nameLast { grid-area: last; }
+#p-username { grid-area: user; }
+#p-email1 { grid-area: email1; }
+#p-email2 { grid-area: email2; }
+#p-password1 { grid-area: pass1; }
+#p-password2 { grid-area: pass2; }
+#p-submit { 
+    grid-area: submit; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

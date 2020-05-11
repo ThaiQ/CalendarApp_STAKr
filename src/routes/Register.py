@@ -1,6 +1,6 @@
 from src import app
 from src import db
-from flask import render_template, redirect
+from flask import render_template, redirect, flash
 from flask_login import current_user
 from src.forms import RegistrationForm
 from src.schemas import User
@@ -27,5 +27,6 @@ def register():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
-        return redirect('/')
+        flash ('Successfully Registered')
+        return redirect('/login')
     return render_template('Register/register.html', form=form)

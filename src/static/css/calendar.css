@@ -7,10 +7,6 @@ body {font-family: Verdana, sans-serif;}
   left: 10%;
 }
 
-.whole-calendar-size2 {
-
-}
-
 .month-header {
   padding-bottom: 20px;
   color: white;
@@ -102,10 +98,27 @@ body {font-family: Verdana, sans-serif;}
 /*create new event's form */
 #make-event-form {
   position: relative;
-  left: 40%;
+  left: 35%;
   color: white;
   width: fit-content;
+  display: grid;
+  grid-column-gap: 20px;
+  grid-template-areas:
+  'header header'
+  'name name'
+  'time time'
+  'event desc'
+  'submit submit';
 }
+#g-header { 
+  grid-area: header; 
+  text-align: center;
+}
+#g-name { grid-area: name; }
+#g-time { grid-area: time; }
+#g-event { grid-area: event; }
+#g-desc { grid-area: desc; }
+#g-submit { grid-area: submit; }
 
 .number-date {
   margin: 5%;

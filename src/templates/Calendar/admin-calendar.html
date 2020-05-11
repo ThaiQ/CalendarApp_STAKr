@@ -28,7 +28,7 @@
                         events.forEach(event => {
                             let descpt = event.event_description==='N/A'? '':event.event_description
                             console.log(event.event_description)
-                            let name = (event.event_name.length<10) ? event.event_name : event.event_name.slice(0,15)+'...'
+                            let name = (event.event_name.length<19) ? event.event_name : event.event_name.slice(0,18)+'...'
                             let original = document.getElementById(index).innerHTML
                             document.getElementById(index).outerHTML = `
                             <li class='date-with-content' id=${index}>

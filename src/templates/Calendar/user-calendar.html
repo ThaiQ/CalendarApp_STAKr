@@ -2,6 +2,8 @@
 
 {% block user %}
 
+<style>#particles-js { height: 155vh !important; }</style>
+
 <script>
     let ele = document.getElementsByClassName("whole-calendar")
     if (ele) {
@@ -13,25 +15,35 @@
 
 <form action="" method="post">
     <div id="make-event-form" class="form-group">
-        <h3>Appointment with {{user.username}}</h3>
-        <label>{{form.event_date.label}}: </label> 
-        <nobr id="date-holder">Select a date from above</nobr> <br>
-        {{form.event_date(type='hidden')}}
-        {{form.event_month(type='hidden')}}
-        {{form.event_year(type='hidden')}}
-        <label>{{form.guest_name.label}}</label>
-        {{form.guest_name(type="text", class="form-control", placeholder="First and last name")}} <br>
-        <label>{{form.event_name.label}}</label>
-        {{form.event_name(type="text", class="form-control", placeholder="Event's Name")}} 
-        <div class="form-group">
-        <label id='choose-time-label'>Choose your time: </label>
-        <select id="open-slots" class="form-control" name="open-slots">
-            <option value="-1">Select An Appointment</option>
-        </select>
+        <div id='g-header'>
+            <h3>Appointment with {{user.username}}</h3>
+            <label>{{form.event_date.label}}: </label> 
+            <nobr id="date-holder">Select a date from above</nobr>
+            {{form.event_date(type='hidden')}}
+            {{form.event_month(type='hidden')}}
+            {{form.event_year(type='hidden')}}
         </div>
-        <label>{{form.event_description.label}} (optional)</label>
-        {{form.event_description(type="text", class="form-control", placeholder="Short description")}} 
-        {{form.submit(class="btn btn-light", id="appt-button")}}
+        <div id='g-name'>
+            <label>{{form.guest_name.label}}</label>
+            {{form.guest_name(type="text", class="form-control", placeholder="First and last name")}}
+        </div>
+        <div class="form-group" id='g-time'>
+            <label id='choose-time-label'>Choose your time: </label>
+            <select id="open-slots" class="form-control" name="open-slots">
+                <option value="-1">Select An Appointment</option>
+            </select>
+            </div>
+        <div id='g-event'>
+            <label>{{form.event_name.label}}</label>
+            {{form.event_name(type="text", class="form-control", placeholder="Event's Name")}} 
+        </div>
+        <div id='g-desc'>
+            <label>{{form.event_description.label}} (optional)</label>
+            {{form.event_description(type="text", class="form-control", placeholder="Short description")}}
+        </div>
+        <div id='g-submit'>
+            {{form.submit(class="btn btn-light", id="appt-button")}}
+        </div>
     </div>
 </form>
 
@@ -48,19 +60,21 @@
     $(function() {
         $.getJSON('/getEventsOnMonth/'+`{{user.username}}`+'/'+`{{month[0]}}`+'/'+`{{year}}`,
             function(data) {
-                var slots = Math.floor(({{user.end_available}} - {{user.start_available}}) / {{user.meeting_length}});
                 data = data[0]
                 let currentDate = new Date()
                 data.forEach((events, index) => {
                     if (document.getElementById(index) && index>=currentDate.getDate()) {
                         var original = document.getElementById(index).innerHTML
-                        document.getElementById(index).outerHTML = `
-                        <li class='date-with-content click' id='${index}' onclick="selectDate(this)">
-                            <p class='number-date'>${original}</p>
-                            <div class="date-slots">
-                                <strong>${slots-events.length}</strong> slots left
-                            </div>
-                        </li>`
+                        $.getJSON('/getslots/'+`{{user.username}}/`+`{{month[0]}}/`+original+`/{{year}}`,
+                        (data)=>{
+                            document.getElementById(index).outerHTML = `
+                            <li class='date-with-content click' id='${index}' onclick="selectDate(this)">
+                                <p class='number-date'>${original}</p>
+                                <div class="date-slots">
+                                    <strong>${data.length}</strong> slots left
+                                </div>
+                            </li>`
+                        })
                     }
                 });
             });

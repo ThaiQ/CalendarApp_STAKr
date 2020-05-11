@@ -14,24 +14,12 @@ def home():
         Rendered template html
 
     """
-    posts_list = [
-        {
-            'author': {'username': 'Alex'},
-            'body': 'AMontgomery123'
-        },
-        {
-            'author': {'username': 'Khang'},
-            'body': 'khanhsjsu'
-        },
-		{
-			'author': {'username': 'Thai'},
-            'body': 'ThaiQ'
-		},
-		{
-			'author': {'username': 'Sean'},
-            'body': 'shengda419'
-		}
-    ]
+    name = {
+        'thai' : 'Thai Quach',
+        'khanh': 'Nguyễn Cửu Khánh',
+        'alex' : 'Alex Montgomery',
+        'sean' : 'Sean D. Milner'
+    }
     if current_user.is_authenticated:
         return redirect('/calendar')
-    return render_template('Home/home.html', title='Home', posts=posts_list)
+    return render_template('Home/home.html', title='Home', name = name)
