@@ -23,6 +23,10 @@ Build an application using Python-3 and the Flask Framework to create an appoint
 ## Run Project with <nobr>run.py</nobr>
     python3 run.py
 
+## Choose your database location
+    1. The database location is defaulted on the local machine.
+    2. You can change the database location to another third party in "config.py"
+
 ## Framework
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 
