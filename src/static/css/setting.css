@@ -1,7 +1,7 @@
 #setting-form {
     width: fit-content;
     position: relative;
-    left: 35%;
+    left: 30%;
     display: grid;
     grid-column-gap: 20px;
     grid-row-gap: 20px;
