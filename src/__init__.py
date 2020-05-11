@@ -16,3 +16,6 @@ from src.routes import Home, Login, Register, Logout, Calendar, Settings
 
 #models
 from src.schemas import User
+
+#init database
+db.create_all()
