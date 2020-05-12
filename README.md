@@ -20,6 +20,10 @@ Build an application using Python-3 and the Flask Framework to create an appoint
 
     python3 setup.py
 
+## Running Tests
+
+    pytest
+
 ## Run Project with <nobr>run.py</nobr>
     python3 run.py
 
@@ -29,6 +33,7 @@ Build an application using Python-3 and the Flask Framework to create an appoint
 
 ## Framework
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+- [TravisCI](https://travis-ci.com/)
 
 ## Support libraries
 - [Python's calendar](https://docs.python.org/3/library/calendar.html)
