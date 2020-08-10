@@ -1,7 +1,7 @@
 language: python
 # command to install dependencies
 install:
-  - python3.8 setup.py
+  - python setup.py
 # command to run tests
 script:
   - pytest
