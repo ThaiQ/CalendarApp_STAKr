@@ -32,6 +32,10 @@ Build an application using Python-3 and the Flask Framework to create an appoint
     1. The database location is defaulted on the local machine.
     2. You can change the database location to another third party in "config.py"
 
+## Locking Pipfile.lock for deployment on Heroku
+    pipenv lock
+Make sure to use the affiliated python version in Pipfile.   
+
 ## Framework
 - [Flask](https://flask.palletsprojects.com/en/1.1.x/)
 - [TravisCI](https://travis-ci.com/)
