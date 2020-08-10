@@ -1,5 +1,5 @@
 ﻿# STAKr
-[![Build Status](https://travis-ci.com/cmpe131-spring2020/CalendarApp_STAKr.svg?token=vGw46cLfXxwdXyKzPynX&branch=master)](https://travis-ci.com/cmpe131-spring2020/CalendarApp_STAKr)
+[![Build Status](https://travis-ci.com/ThaiQ/CalendarApp_STAKr.svg?branch=dev)](https://travis-ci.com/ThaiQ/CalendarApp_STAKr)
 ### Visit us at [https://stakr-calendar.herokuapp.com/](https://stakr-calendar.herokuapp.com/)
 ---
 By: Alex Montgomery (AMontgomery123), Thai Quach (ThaiQ), Sean Milner(shengda419), Nguyen Cuu Khanh (khanhsjsu)
